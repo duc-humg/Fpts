@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Fpts.Views.thitruong"
+             Title="Tổng quan thị trường"
+             BackgroundColor="White">
+    <ContentPage.Content>
+        <Grid RowDefinitions="70,50,*"
+              Padding="0"
+              Margin="0"
+              ColumnSpacing="0"
+              RowSpacing="0">
+            <Grid ColumnDefinitions="*,*"
+                  RowDefinitions="*,0.5"
+                  ColumnSpacing="0"
+                  RowSpacing="0">
+                <Button Text="HSX"
+                        FontSize="30"
+                        FontAttributes="Bold" 
+                        Grid.Column="0"
+                        Padding="0"
+                        Margin="0"
+                        BackgroundColor="White"
+                        Grid.Row="0"
+                        Clicked="Button_Clicked"/>
+                <BoxView BackgroundColor="black"
+                         HeightRequest="0.5" Grid.Column="0"
+                         Grid.Row="1"/>
+                <Button Text="HNX"
+                        FontSize="30"
+                        FontAttributes="Bold"
+                        Grid.Column="1"
+                        Padding="0"
+                        Margin="0"
+                        BackgroundColor="White"
+                        Grid.Row="0" 
+                        Clicked="Button_Clicked_1"/>
+                <BoxView BackgroundColor="black"
+                         HeightRequest="0.5"
+                         Grid.Column="1"
+                         Grid.Row="1"/>
+            </Grid>
+            <Grid ColumnDefinitions="*,*,*,*,20"
+                  RowDefinitions="*"
+                  Grid.Row="1">
+                <BoxView BackgroundColor="#f3f3f3"
+                         Grid.ColumnSpan="5" />
+                <Label Text="Chỉ số"
+                       FontSize="22"
+                       TextColor="Black"
+                       Grid.Column="0" 
+                       VerticalOptions="EndAndExpand"/>
+                <Label Text="Giá"
+                       FontSize="22"
+                       TextColor="Black"
+                       Grid.Column="1"
+                       HorizontalOptions="End"
+                       VerticalOptions="EndAndExpand"/>
+                <Label Text="Thay đổi"
+                       FontSize="22"
+                       TextColor="Black"
+                       Grid.Column="2"
+                       HorizontalOptions="End"
+                       VerticalOptions="EndAndExpand">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label Text="Khối lượng"
+                       FontSize="22"
+                       TextColor="Black"
+                       Grid.Column="3"
+                       HorizontalOptions="End"
+                       VerticalOptions="EndAndExpand">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+                    
+            </Grid>
+            <StackLayout Orientation="Vertical"
+                         Grid.Row="2">
+                <CollectionView x:Name="list1">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="5,0,10,0"
+                                  ColumnDefinitions="*,*,*,*,20"
+                                  RowDefinitions="40,0.5" >
+                                <Label Text="{Binding Ma}"
+                                       FontSize="20"
+                                       TextColor="{Binding mau}"
+                                       Grid.Column="0"
+                                       Grid.Row="0"
+                                       VerticalOptions="CenterAndExpand" />
+                                <Label Text="{Binding sogd}"
+                                       FontSize="20"
+                                       TextColor="{Binding mau}"
+                                       Grid.Column="1"
+                                       HorizontalOptions="End"
+                                       Grid.Row="0"
+                                       VerticalOptions="CenterAndExpand" />
+                                <Label Text="{Binding thaydoi}"
+                                       FontSize="20"
+                                       TextColor="{Binding mau}"
+                                       Grid.Column="2"
+                                       HorizontalOptions="End"
+                                       Grid.Row="0"
+                                       VerticalOptions="CenterAndExpand"
+                                       IsVisible="{Binding check1}"
+                                       x:Name="thaydoi" />
+                                <Label Text="{Binding thaydoi1}"
+                                       FontSize="20"
+                                       TextColor="{Binding mau}"
+                                       Grid.Column="2"
+                                       HorizontalOptions="End"
+                                       Grid.Row="0"
+                                       IsVisible="{Binding check2}"
+                                       VerticalOptions="CenterAndExpand" />
+                                <Label Text="{Binding khoiluong}"
+                                       FontSize="20"
+                                       TextColor="Black"
+                                       Grid.Column="3"
+                                       HorizontalOptions="End"
+                                       Grid.Row="0"
+                                       VerticalOptions="CenterAndExpand"
+                                       IsVisible="{Binding check3}"/>
+                                <Label Text="{Binding monney}"
+                                       FontSize="20"
+                                       TextColor="Black"
+                                       Grid.Column="3"
+                                       HorizontalOptions="End"
+                                       Grid.Row="0"
+                                       VerticalOptions="CenterAndExpand"
+                                       IsVisible="{Binding check4}"/>
+                                <BoxView BackgroundColor="Gray"
+                                         HeightRequest="0.5"
+                                         Grid.ColumnSpan="4"
+                                         Grid.Row="1"
+                                         VerticalOptions="CenterAndExpand" />
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

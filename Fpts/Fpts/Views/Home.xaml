@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Fpts.Views.Home">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="sort.png"
+                     Priority="0"
+                     Order="Primary"></ToolbarItem>
+        <ToolbarItem IconImageSource="bell.png"
+                     Priority="1"
+                     Order="Primary"></ToolbarItem>
+        <ToolbarItem IconImageSource="search.png"
+                     Priority="2"
+                     Order="Primary"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="140" />
+                <RowDefinition Height="4" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackLayout Orientation="Horizontal"
+                         Grid.Row="0">
+                <CollectionView x:Name="list1">
+                    <CollectionView.Footer>
+                        <StackLayout>
+                            <Image Source="right.png"
+                                   Aspect="AspectFill"
+                                   VerticalOptions="CenterAndExpand"
+                                   HeightRequest="50"
+                                   WidthRequest="50">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" Command=""/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </StackLayout>
+                    </CollectionView.Footer>
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="10,10,20,10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="30" />
+                                    <RowDefinition Height="30" />
+                                    <RowDefinition Height="30" />
+                                    <RowDefinition Height="30" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="60" />
+                                    <ColumnDefinition Width="40" />
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Row="0"
+                                       Grid.ColumnSpan="2"
+                                       Text="{Binding Ma}"
+                                       TextColor="Black"
+                                       FontAttributes="Italic"
+                                       FontSize="20"
+                                       HorizontalOptions="CenterAndExpand" />
+                                <Label Grid.Row="1"
+                                       Text="{Binding thaydoi}"
+                                       TextColor="{Binding color}"
+                                       FontSize="20"
+                                       Grid.ColumnSpan="2"
+                                       HorizontalOptions="CenterAndExpand" />
+                                <Label Text="{Binding sogd}"
+                                       TextColor="{Binding color}"
+                                       FontSize="15"
+                                       Grid.Column="0"
+                                       Grid.Row="2"
+                                       HorizontalOptions="CenterAndExpand" />
+                                <Label Text="{Binding thaydoi1}"
+                                       TextColor="{Binding color}"
+                                       FontSize="15"
+                                       Grid.Column="1"
+                                       Grid.Row="2"
+                                       HorizontalOptions="StartAndExpand" />
+                                <Label Text="{Binding monney}"
+                                       TextColor="Black"
+                                       FontSize="15"
+                                       Grid.Column="0"
+                                       Grid.Row="3"
+                                       Grid.ColumnSpan="2"
+                                       HorizontalOptions="CenterAndExpand" />
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+            <BoxView BackgroundColor="#e5e5e5"
+                     Grid.Row="1"
+                     HeightRequest="3"
+                     WidthRequest="1" />
+            <StackLayout Orientation="Horizontal"
+                         Grid.Row="2"
+                         Padding="10,10,10,15">
+                <Grid ColumnDefinitions="270,*,*,*"
+                      Padding="25,0,20,0">
+                    <Label Text="BẢNG GIÁ"
+                           FontSize="22"
+                           TextColor="Black"
+                           FontAttributes="Italic"
+                           Grid.Column="0" />
+                    <Image Source="right.png"
+                           Aspect="AspectFit"
+                           Grid.Column="3"
+                           HeightRequest="22"
+                           WidthRequest="22"
+                           VerticalOptions="Start" />
+                    <Image Source="list.png"
+                           Aspect="AspectFit"
+                           Grid.Column="1"
+                           HeightRequest="22"
+                           WidthRequest="22"
+                           VerticalOptions="Start" />
+                    <Image Source="plus.png"
+                           Aspect="AspectFit"
+                           Grid.Column="2"
+                           HeightRequest="22"
+                           WidthRequest="22"
+                           VerticalOptions="Start"
+                           Margin="10,0,10,0" />
+                </Grid>
+            </StackLayout>
+            <Grid ColumnDefinitions="*,*,*,*"
+                  RowDefinitions="*,0.5"
+                  Padding="5,0,10,0"
+                  Grid.Row="3">
+                <Label Text="Mã"
+                       FontSize="22"
+                       TextColor="Black"
+                       Grid.Column="0" />
+                <Label Text="Giá"
+                       FontSize="22"
+                       TextColor="Black"
+                       Grid.Column="1"
+                       HorizontalOptions="End" />
+                <Label Text="+/-"
+                       FontSize="22"
+                       TextColor="Black"
+                       Grid.Column="2"
+                       HorizontalOptions="End">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label Text="Khối lượng"
+                       FontSize="22"
+                       TextColor="Black"
+                       Grid.Column="3"
+                       HorizontalOptions="End" />
+                <BoxView BackgroundColor="Gray"
+                         HeightRequest="0.5"
+                         Grid.ColumnSpan="4"
+                         Grid.Row="1" />
+            </Grid>
+            <StackLayout Orientation="Vertical"
+                         Grid.Row="4">
+                <CollectionView ItemsSource="{Binding Giaodich}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="5,0,10,0"
+                                  ColumnDefinitions="*,*,*,*"
+                                  RowDefinitions="50,0.5">
+                                <Label Text="{Binding ma}"
+                                       FontSize="25"
+                                       TextColor="{Binding mau}"
+                                       Grid.Column="0"
+                                       Grid.Row="0"
+                                       VerticalOptions="CenterAndExpand" />
+                                <Label Text="{Binding gia}"
+                                       FontSize="25"
+                                       TextColor="{Binding mau}"
+                                       Grid.Column="1"
+                                       HorizontalOptions="End"
+                                       Grid.Row="0"
+                                       VerticalOptions="CenterAndExpand" />
+                                <Label Text="{Binding phantram}"
+                                       FontSize="25"
+                                       TextColor="{Binding mau}"
+                                       Grid.Column="2"
+                                       HorizontalOptions="End"
+                                       Grid.Row="0"
+                                       VerticalOptions="CenterAndExpand" />
+                                <Label Text="{Binding khoiluong}"
+                                       FontSize="25"
+                                       TextColor="Black"
+                                       Grid.Column="3"
+                                       HorizontalOptions="End"
+                                       Grid.Row="0"
+                                       VerticalOptions="CenterAndExpand" />
+                                <BoxView BackgroundColor="Gray"
+                                         HeightRequest="0.5"
+                                         Grid.ColumnSpan="4"
+                                         Grid.Row="1"
+                                         VerticalOptions="CenterAndExpand" />
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
