@@ -24,7 +24,8 @@
             </Grid.RowDefinitions>
             <StackLayout Orientation="Horizontal"
                          Grid.Row="0">
-                <CollectionView x:Name="list1">
+                <CollectionView x:Name="list1"
+                                ItemsSource="{Binding Giaodich}">
                     <CollectionView.Footer>
                         <StackLayout>
                             <Image Source="right.png"
@@ -33,7 +34,7 @@
                                    HeightRequest="50"
                                    WidthRequest="50">
                                 <Image.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" Command=""/>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                                 </Image.GestureRecognizers>
                             </Image>
                         </StackLayout>
@@ -143,7 +144,8 @@
                        FontSize="22"
                        TextColor="Black"
                        Grid.Column="2"
-                       HorizontalOptions="End">
+                       HorizontalOptions="End"
+                       x:Name="lbltoantu">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" />
                     </Label.GestureRecognizers>
@@ -160,48 +162,59 @@
             </Grid>
             <StackLayout Orientation="Vertical"
                          Grid.Row="4">
-                <CollectionView ItemsSource="{Binding Giaodich}">
-                    <CollectionView.ItemTemplate>
+                <ListView ItemsSource="{Binding Giaodich}">
+                    <ListView.ItemTemplate>
                         <DataTemplate>
-                            <Grid Padding="5,0,10,0"
-                                  ColumnDefinitions="*,*,*,*"
-                                  RowDefinitions="50,0.5">
-                                <Label Text="{Binding ma}"
-                                       FontSize="25"
-                                       TextColor="{Binding mau}"
-                                       Grid.Column="0"
-                                       Grid.Row="0"
-                                       VerticalOptions="CenterAndExpand" />
-                                <Label Text="{Binding gia}"
-                                       FontSize="25"
-                                       TextColor="{Binding mau}"
-                                       Grid.Column="1"
-                                       HorizontalOptions="End"
-                                       Grid.Row="0"
-                                       VerticalOptions="CenterAndExpand" />
-                                <Label Text="{Binding phantram}"
+                            <ViewCell>
+                                <Grid Padding="5,0,10,0"
+                                      ColumnDefinitions="*,*,*,*"
+                                      RowDefinitions="50,0.5">
+                                    <Label Text="{Binding ma}"
+                                           FontSize="25"
+                                           TextColor="{Binding mau}"
+                                           Grid.Column="0"
+                                           Grid.Row="0"
+                                           VerticalOptions="CenterAndExpand" />
+                                    <Label Text="{Binding gia}"
+                                           FontSize="25"
+                                           TextColor="{Binding mau}"
+                                           Grid.Column="1"
+                                           HorizontalOptions="End"
+                                           Grid.Row="0"
+                                           VerticalOptions="CenterAndExpand" />
+                                    <Label Text="{Binding phantram}"
+                                           FontSize="25"
+                                           TextColor="{Binding mau}"
+                                           Grid.Column="2"
+                                           HorizontalOptions="End"
+                                           Grid.Row="0"
+                                           VerticalOptions="CenterAndExpand"
+                                           IsVisible="{Binding IsSessionExpried, Mode=TwoWay}"></Label>
+                                    <!--<Label Text="{Binding phantram1}"
                                        FontSize="25"
                                        TextColor="{Binding mau}"
                                        Grid.Column="2"
                                        HorizontalOptions="End"
                                        Grid.Row="0"
-                                       VerticalOptions="CenterAndExpand" />
-                                <Label Text="{Binding khoiluong}"
-                                       FontSize="25"
-                                       TextColor="Black"
-                                       Grid.Column="3"
-                                       HorizontalOptions="End"
-                                       Grid.Row="0"
-                                       VerticalOptions="CenterAndExpand" />
-                                <BoxView BackgroundColor="Gray"
-                                         HeightRequest="0.5"
-                                         Grid.ColumnSpan="4"
-                                         Grid.Row="1"
-                                         VerticalOptions="CenterAndExpand" />
-                            </Grid>
+                                       VerticalOptions="CenterAndExpand" 
+                                       IsVisible="{Binding check6}"/>-->
+                                    <Label Text="{Binding khoiluong}"
+                                           FontSize="25"
+                                           TextColor="Black"
+                                           Grid.Column="3"
+                                           HorizontalOptions="End"
+                                           Grid.Row="0"
+                                           VerticalOptions="CenterAndExpand" />
+                                    <BoxView BackgroundColor="Gray"
+                                             HeightRequest="0.5"
+                                             Grid.ColumnSpan="4"
+                                             Grid.Row="1"
+                                             VerticalOptions="CenterAndExpand" />
+                                </Grid>
+                            </ViewCell>
                         </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
+                    </ListView.ItemTemplate>
+                </ListView>
             </StackLayout>
         </Grid>
     </ContentPage.Content>

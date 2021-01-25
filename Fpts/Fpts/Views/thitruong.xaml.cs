@@ -36,6 +36,37 @@ namespace Fpts.Views
             HSX.Add(new Banggia { Ma = "HNXMSCA", thaydoi = "1176.21", sogd = 38.53, thaydoi1 = "2.60%", monney = "15758.59 tỷ", ma = "MBB", gia = "30", phantram = 1.6, khoiluong = "56,300", check1 = true, check2 = false, check3 = true, check4 = false });
             HSX.Add(new Banggia { Ma = "UPCOM", thaydoi = "1176.21", sogd = 38.53, thaydoi1 = "2.60%", monney = "15758.59 tỷ", ma = "MBB", gia = "30", phantram = 1.6, khoiluong = "56,300", check1 = true, check2 = false, check3 = true, check4 = false });
             list1.ItemsSource = HNX;
+            foreach (var item in HNX)
+            {
+                if (item.sogd > 40.00)
+                {
+                    item.color = "#6ac164";
+                }
+                if (item.sogd == 48.53)
+                {
+                    item.color = "#f26f21";
+                }
+                if (item.sogd < 40.00)
+                {
+                    item.color = "#c3161c";
+                }
+
+            }
+            foreach (var iteam in HNX)
+            {
+                if (iteam.phantram > 0)
+                {
+                    iteam.mau = "#6ac164";
+                }
+                if (iteam.phantram == 0)
+                {
+                    iteam.mau = "#f26f21";
+                }
+                if (iteam.phantram < 0)
+                {
+                    iteam.mau = "#c3161c";
+                }
+            }
         }
         public ObservableCollection<Banggia> HSX { get; set; }
         public ObservableCollection<Banggia> HNX { get; set; }

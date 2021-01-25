@@ -15,6 +15,7 @@ namespace Fpts.Models
         public string ma { get; set; }
         public string gia { get; set; }
         public double phantram { get; set; }
+        public double phantram1 { get; set; }
         public string khoiluong { get; set; }
         public string mau { get; set; }
         public bool check1 { get; set; }
