@@ -103,7 +103,7 @@ namespace Fpts.Droid.Renderer
                 renderer.Element.Measure(contentWidthConstraint, contentHeightConstraint);
                 renderer.Element.Layout(new Rectangle(0, 0, contentWidthConstraint, contentHeightConstraint));
 
-                renderer.UpdateLayout();
+               renderer.UpdateLayout();
             }
         }
 

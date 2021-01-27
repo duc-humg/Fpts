@@ -11,7 +11,7 @@
               ColumnSpacing="0"
               RowSpacing="0">
             <Grid ColumnDefinitions="*,*"
-                  RowDefinitions="*,0.5"
+                  RowDefinitions="*,1.5"
                   ColumnSpacing="0"
                   RowSpacing="0">
                 <Button Text="HSX"
@@ -22,10 +22,26 @@
                         Margin="0"
                         BackgroundColor="White"
                         Grid.Row="0"
-                        Clicked="Button_Clicked"/>
-                <BoxView BackgroundColor="black"
-                         HeightRequest="0.5" Grid.Column="0"
-                         Grid.Row="1"/>
+                        TextColor="Gray"
+                        Clicked="Button_Clicked"
+                        x:Name="btnHSX"/>
+                <Button Text="HSX"
+                        FontSize="30"
+                        FontAttributes="Bold"
+                        Grid.Column="0"
+                        Padding="0"
+                        Margin="0"
+                        BackgroundColor="White"
+                        Grid.Row="0"
+                        IsVisible="true"
+                        TextColor="Blue"
+                        x:Name="btnHSX1" 
+                        Clicked="btnHSX1_Clicked"/>
+                <BoxView BackgroundColor="blue"
+                         HeightRequest="1.5" Grid.Column="0"
+                         Grid.Row="1"
+                         x:Name="bow1"
+                         IsVisible="true"/>
                 <Button Text="HNX"
                         FontSize="30"
                         FontAttributes="Bold"
@@ -34,11 +50,27 @@
                         Margin="0"
                         BackgroundColor="White"
                         Grid.Row="0" 
-                        Clicked="Button_Clicked_1"/>
-                <BoxView BackgroundColor="black"
-                         HeightRequest="0.5"
+                        Clicked="Button_Clicked_1"
+                        TextColor="Gray"
+                        x:Name="btnHNX"/>
+                <Button Text="HNX"
+                        FontSize="30"
+                        FontAttributes="Bold"
+                        Grid.Column="1"
+                        Padding="0"
+                        Margin="0"
+                        BackgroundColor="White"
+                        Grid.Row="0"
+                        IsVisible="false"
+                        TextColor="Blue"
+                        x:Name="btnHNX1"
+                        Clicked="btnHNX1_Clicked"/>
+                <BoxView BackgroundColor="Blue"
+                         HeightRequest="1.5"
                          Grid.Column="1"
-                         Grid.Row="1"/>
+                         Grid.Row="1"
+                         x:Name="bow2"
+                         IsVisible="false"/>
             </Grid>
             <Grid ColumnDefinitions="*,*,*,*,20"
                   RowDefinitions="*"
@@ -134,9 +166,19 @@
                                        IsVisible="{Binding check4}"/>
                                 <BoxView BackgroundColor="Gray"
                                          HeightRequest="0.5"
-                                         Grid.ColumnSpan="4"
+                                         Grid.ColumnSpan="5"
                                          Grid.Row="1"
                                          VerticalOptions="CenterAndExpand" />
+                                <Image Source="{Binding img}"
+                                       WidthRequest="20"
+                                       HeightRequest="20"
+                                       Aspect="Fill"
+                                       Grid.Column="4"
+                                       Grid.RowSpan="2">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2" />
+                                    </Image.GestureRecognizers>
+                                </Image>
                             </Grid>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>

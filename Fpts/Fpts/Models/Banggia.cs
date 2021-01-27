@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace Fpts.Models
 {
-    public class Banggia
+    public class Banggia 
     {
+        
         public string Ma { get; set; }
         public double sogd { get; set; }
         public string thaydoi { get; set; }
@@ -23,8 +25,6 @@ namespace Fpts.Models
         public bool check3 { get; set; }
         public bool check4 { get; set; }
         public bool check5 { get; set; }
-        public bool check6 { get; set; }
-
-
+        public string img { get; set; }
     }
 }

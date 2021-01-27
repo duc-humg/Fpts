@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Fpts.Views.Home">
+             x:Class="Fpts.Views.Home"
+             BackgroundColor="White">
     <ContentPage.ToolbarItems>
         <ToolbarItem IconImageSource="sort.png"
                      Priority="0"
@@ -22,6 +23,11 @@
                 <RowDefinition Height="50" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
+            <BoxView BackgroundColor="Black"
+                     Opacity="0.5"
+                     Grid.RowSpan="5" 
+                     x:Name="boxview"
+                     IsVisible="false"/>
             <StackLayout Orientation="Horizontal"
                          Grid.Row="0">
                 <CollectionView x:Name="list1"
@@ -95,7 +101,13 @@
             <BoxView BackgroundColor="#e5e5e5"
                      Grid.Row="1"
                      HeightRequest="3"
-                     WidthRequest="1" />
+                     WidthRequest="1"
+                       />
+            <BoxView BackgroundColor="Black"
+                     Grid.Row="1"
+                     Opacity="0.5"
+                     x:Name="boxview1"
+                     IsVisible="false"/>
             <StackLayout Orientation="Horizontal"
                          Grid.Row="2"
                          Padding="10,10,10,15">
@@ -117,8 +129,12 @@
                            Grid.Column="1"
                            HeightRequest="22"
                            WidthRequest="22"
-                           VerticalOptions="Start" />
-                    <Image Source="plus.png"
+                           VerticalOptions="Start">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_6" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                        <Image Source="plus.png"
                            Aspect="AspectFit"
                            Grid.Column="2"
                            HeightRequest="22"
@@ -160,37 +176,45 @@
                          Grid.ColumnSpan="4"
                          Grid.Row="1" />
             </Grid>
+            
             <StackLayout Orientation="Vertical"
                          Grid.Row="4">
                 <ListView ItemsSource="{Binding Giaodich}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <Grid Padding="5,0,10,0"
-                                      ColumnDefinitions="*,*,*,*"
-                                      RowDefinitions="50,0.5">
-                                    <Label Text="{Binding ma}"
-                                           FontSize="25"
-                                           TextColor="{Binding mau}"
-                                           Grid.Column="0"
-                                           Grid.Row="0"
-                                           VerticalOptions="CenterAndExpand" />
-                                    <Label Text="{Binding gia}"
-                                           FontSize="25"
-                                           TextColor="{Binding mau}"
-                                           Grid.Column="1"
-                                           HorizontalOptions="End"
-                                           Grid.Row="0"
-                                           VerticalOptions="CenterAndExpand" />
-                                    <Label Text="{Binding phantram}"
-                                           FontSize="25"
-                                           TextColor="{Binding mau}"
-                                           Grid.Column="2"
-                                           HorizontalOptions="End"
-                                           Grid.Row="0"
-                                           VerticalOptions="CenterAndExpand"
-                                           IsVisible="{Binding IsSessionExpried, Mode=TwoWay}"></Label>
-                                    <!--<Label Text="{Binding phantram1}"
+                                <SwipeView>
+                                    <SwipeView.RightItems>
+                                        <SwipeItems>
+                                            <SwipeItem Text="Xóa"
+                                                       BackgroundColor="red" />
+                                        </SwipeItems>
+                                    </SwipeView.RightItems>
+                                    <Grid Padding="5,0,10,0"
+                                          ColumnDefinitions="*,*,*,*"
+                                          RowDefinitions="50,0.5">
+                                        <Label Text="{Binding ma}"
+                                               FontSize="25"
+                                               TextColor="{Binding mau}"
+                                               Grid.Column="0"
+                                               Grid.Row="0"
+                                               VerticalOptions="CenterAndExpand" />
+                                        <Label Text="{Binding gia}"
+                                               FontSize="25"
+                                               TextColor="{Binding mau}"
+                                               Grid.Column="1"
+                                               HorizontalOptions="End"
+                                               Grid.Row="0"
+                                               VerticalOptions="CenterAndExpand" />
+                                        <Label Text="{Binding phantram}"
+                                               FontSize="25"
+                                               TextColor="{Binding mau}"
+                                               Grid.Column="2"
+                                               HorizontalOptions="End"
+                                               Grid.Row="0"
+                                               VerticalOptions="CenterAndExpand"
+                                               IsVisible="{Binding IsSessionExpried, Mode=TwoWay}"></Label>
+                                        <!--<Label Text="{Binding phantram1}"
                                        FontSize="25"
                                        TextColor="{Binding mau}"
                                        Grid.Column="2"
@@ -198,24 +222,119 @@
                                        Grid.Row="0"
                                        VerticalOptions="CenterAndExpand" 
                                        IsVisible="{Binding check6}"/>-->
-                                    <Label Text="{Binding khoiluong}"
-                                           FontSize="25"
-                                           TextColor="Black"
-                                           Grid.Column="3"
-                                           HorizontalOptions="End"
-                                           Grid.Row="0"
-                                           VerticalOptions="CenterAndExpand" />
-                                    <BoxView BackgroundColor="Gray"
-                                             HeightRequest="0.5"
-                                             Grid.ColumnSpan="4"
-                                             Grid.Row="1"
-                                             VerticalOptions="CenterAndExpand" />
-                                </Grid>
+                                        <Label Text="{Binding khoiluong}"
+                                               FontSize="25"
+                                               TextColor="Black"
+                                               Grid.Column="3"
+                                               HorizontalOptions="End"
+                                               Grid.Row="0"
+                                               VerticalOptions="CenterAndExpand" />
+                                        <BoxView BackgroundColor="Gray"
+                                                 HeightRequest="0.5"
+                                                 Grid.ColumnSpan="4"
+                                                 Grid.Row="1"
+                                                 VerticalOptions="CenterAndExpand" />
+                                    </Grid>
+                                </SwipeView>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
             </StackLayout>
+            <BoxView BackgroundColor="Black"
+                     Grid.Row="4"
+                     Opacity="0.5"
+                     x:Name="boxview3"
+                     IsVisible="false"  />
+            <Grid Grid.Row="2"
+                  Grid.RowSpan="3"
+                  RowDefinitions="30,*,220"
+                  ColumnDefinitions="25,*,25"
+                  x:Name="note"
+                  IsVisible="false"  >
+                <Grid RowDefinitions="60,*,60,60"
+                      ColumnDefinitions="*,50"
+                      Grid.Column="1"
+                      Grid.Row="1"
+                      BackgroundColor="White" >
+                    <BoxView BackgroundColor="#0064b2"
+                             Grid.Row="0"
+                             Grid.ColumnSpan="2" />
+                    <Label Text="Danh mục theo dõi" 
+                               TextColor="White"
+                               HorizontalOptions="CenterAndExpand"
+                               VerticalOptions="CenterAndExpand"
+                               FontSize="20"/>
+                    <Image Source="close.png"
+                           HeightRequest="20"
+                           WidthRequest="20"
+                           Grid.Column="1"
+                           Grid.Row="0"
+                           HorizontalOptions="CenterAndExpand"
+                           VerticalOptions="CenterAndExpand">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_5" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Button Text="Tạo danh mục"
+                            Clicked="Button_Clicked"
+                            TextColor="#0064b2"
+                            Padding="0"
+                            Margin="0"
+                            Grid.ColumnSpan="2"
+                            Grid.Row="3"
+                            x:Name="button"
+                            FontSize="22"/>
+                    <Entry  Margin="5,0,5,0"
+                            TextColor="Black"
+                            VerticalOptions="CenterAndExpand"
+                            Grid.Column="0"
+                            Grid.Row="3" 
+                            x:Name="entry"
+                            IsVisible="false"/>
+                    <Image Source="kiemtra.png"
+                           HeightRequest="20"
+                           WidthRequest="20"
+                           Grid.Column="1"
+                           Grid.Row="3"
+                           HorizontalOptions="CenterAndExpand"
+                           VerticalOptions="CenterAndExpand"
+                           x:Name="check"
+                           IsVisible="false">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_7" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <StackLayout Grid.Row="1"
+                                 Grid.RowSpan="2"
+                                 Grid.ColumnSpan="2"
+                                 
+                                 Margin="0"
+                                 Padding="0"
+                                 Spacing="0">
+                        <ListView ItemsSource="{Binding listnote}"
+                                  Margin="10,10,10,10">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <ViewCell.View>
+                                            <StackLayout>
+                                                <Label Text="{Binding notetext}"
+                                                       TextColor="Black"
+                                                       FontSize="18" VerticalOptions="CenterAndExpand"/>
+                                                <BoxView BackgroundColor="Gray"
+                                                         HeightRequest="0.5"
+                                                         VerticalOptions="CenterAndExpand" />
+                                            </StackLayout>
+                                        </ViewCell.View>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                        
+                    </StackLayout>
+                </Grid>
+            </Grid>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
