@@ -17,10 +17,10 @@
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="140" />
+                <RowDefinition Height="125" />
                 <RowDefinition Height="4" />
                 <RowDefinition Height="50" />
-                <RowDefinition Height="50" />
+                <RowDefinition Height="35" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <BoxView BackgroundColor="Black"
@@ -50,47 +50,57 @@
                     </CollectionView.ItemsLayout>
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Grid Padding="10,10,20,10">
+                            <Grid Padding="0,0,0,0">
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="30" />
-                                    <RowDefinition Height="30" />
-                                    <RowDefinition Height="30" />
-                                    <RowDefinition Height="30" />
+                                    <RowDefinition Height="28" />
+                                    <RowDefinition Height="32" />
+                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="20" />
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="60" />
-                                    <ColumnDefinition Width="40" />
+                                    <ColumnDefinition Width="60" />
+                                    <ColumnDefinition Width="5" />
                                 </Grid.ColumnDefinitions>
                                 <Label Grid.Row="0"
                                        Grid.ColumnSpan="2"
                                        Text="{Binding Ma}"
                                        TextColor="Black"
-                                       FontAttributes="Italic"
-                                       FontSize="20"
-                                       HorizontalOptions="CenterAndExpand" />
+                                       FontSize="22"
+                                       FontFamily="helveticaneue.ttf"
+                                       HorizontalOptions="CenterAndExpand"
+                                       Padding="0,5,0,0"/>
                                 <Label Grid.Row="1"
                                        Text="{Binding thaydoi}"
                                        TextColor="{Binding color}"
-                                       FontSize="20"
+                                       FontSize="22"
+                                       FontAttributes="Bold"
                                        Grid.ColumnSpan="2"
-                                       HorizontalOptions="CenterAndExpand" />
+                                       HorizontalOptions="CenterAndExpand" 
+                                       Padding="0,2,0,5"/>
                                 <Label Text="{Binding sogd}"
                                        TextColor="{Binding color}"
                                        FontSize="15"
                                        Grid.Column="0"
                                        Grid.Row="2"
+                                       FontFamily="helveticaneue.ttf"
                                        HorizontalOptions="CenterAndExpand" />
                                 <Label Text="{Binding thaydoi1}"
                                        TextColor="{Binding color}"
-                                       FontSize="15"
-                                       Grid.Column="1"
+                                       FontSize="16"
+                                       Grid.Column="1"  
                                        Grid.Row="2"
-                                       HorizontalOptions="StartAndExpand" />
+                                       FontFamily="helveticaneue.ttf"
+                                       HorizontalOptions="StartAndExpand"
+                                       Padding="0,0,0,5"
+                                       Margin="0"
+                                      />
                                 <Label Text="{Binding monney}"
                                        TextColor="Black"
                                        FontSize="15"
                                        Grid.Column="0"
                                        Grid.Row="3"
+                                       FontFamily="helveticaneue.ttf"
                                        Grid.ColumnSpan="2"
                                        HorizontalOptions="CenterAndExpand" />
                             </Grid>
@@ -102,34 +112,33 @@
                      Grid.Row="1"
                      HeightRequest="3"
                      WidthRequest="1"
-                       />
+                       /> <!--lam duong ke-->
             <BoxView BackgroundColor="Black"
                      Grid.Row="1"
                      Opacity="0.5"
                      x:Name="boxview1"
-                     IsVisible="false"/>
+                     IsVisible="false"/>  <!--lam mo-->
             <StackLayout Orientation="Horizontal"
                          Grid.Row="2"
                          Padding="10,10,10,15">
-                <Grid ColumnDefinitions="270,*,*,*"
-                      Padding="25,0,20,0">
+                <Grid ColumnDefinitions="290,*,*,*"
+                      ColumnSpacing="35">
                     <Label Text="BẢNG GIÁ"
                            FontSize="22"
                            TextColor="Black"
-                           FontAttributes="Italic"
                            Grid.Column="0" />
                     <Image Source="right.png"
                            Aspect="AspectFit"
                            Grid.Column="3"
                            HeightRequest="22"
                            WidthRequest="22"
-                           VerticalOptions="Start" />
+                           HorizontalOptions="End" />
                     <Image Source="list.png"
                            Aspect="AspectFit"
                            Grid.Column="1"
                            HeightRequest="22"
                            WidthRequest="22"
-                           VerticalOptions="Start">
+                           HorizontalOptions="Start">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_6" />
                         </Image.GestureRecognizers>
@@ -139,51 +148,66 @@
                            Grid.Column="2"
                            HeightRequest="22"
                            WidthRequest="22"
-                           VerticalOptions="Start"
-                           Margin="10,0,10,0" />
+                           HorizontalOptions="Center"
+                            />
                 </Grid>
-            </StackLayout>
-            <Grid ColumnDefinitions="*,*,*,*"
+            </StackLayout> <!--bang gia-->
+            <Grid ColumnDefinitions="80,100,*,*"
                   RowDefinitions="*,0.5"
                   Padding="5,0,10,0"
                   Grid.Row="3">
                 <Label Text="Mã"
-                       FontSize="22"
+                       FontSize="20"
                        TextColor="Black"
-                       Grid.Column="0" />
+                       Grid.Column="0"
+                       FontFamily="helveticaneue.ttf" />
                 <Label Text="Giá"
-                       FontSize="22"
+                       FontSize="20"
                        TextColor="Black"
                        Grid.Column="1"
-                       HorizontalOptions="End" />
-                <Label Text="+/-"
-                       FontSize="22"
-                       TextColor="Black"
-                       Grid.Column="2"
                        HorizontalOptions="End"
-                       x:Name="lbltoantu">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" />
-                    </Label.GestureRecognizers>
-                </Label>
+                       FontFamily="helveticaneue.ttf" />
+                <Grid Grid.Column="2"
+                      RowDefinitions="5,*" 
+                      HorizontalOptions="End"
+                      Padding="0"
+                      Margin="0"
+                      RowSpacing="0"
+                      ColumnSpacing="0">
+                    <Image Source="goctren.png" 
+                           Grid.Row="0"/>
+                    <Label Text="+/-"
+                           FontSize="18"
+                           TextColor="Black"
+                           Grid.Row="1"
+                           HorizontalOptions="End"
+                           x:Name="lbltoantu"
+                           FontFamily="helveticaneue.ttf">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Grid>
                 <Label Text="Khối lượng"
-                       FontSize="22"
+                       FontSize="20"
                        TextColor="Black"
+                       FontFamily="helveticaneue.ttf"
                        Grid.Column="3"
                        HorizontalOptions="End" />
                 <BoxView BackgroundColor="Gray"
                          HeightRequest="0.5"
                          Grid.ColumnSpan="4"
                          Grid.Row="1" />
-            </Grid>
-            
+            </Grid> <!--cot -->
             <StackLayout Orientation="Vertical"
-                         Grid.Row="4">
-                <ListView ItemsSource="{Binding Giaodich}">
+                         Grid.Row="4"
+                         BackgroundColor="White">
+                <ListView ItemsSource="{Binding Giaodich}"
+                          x:Name="list2" >
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <ViewCell>
-                                <SwipeView>
+                            <ViewCell Height="100">
+                                <SwipeView >
                                     <SwipeView.RightItems>
                                         <SwipeItems>
                                             <SwipeItem Text="Xóa"
@@ -191,39 +215,42 @@
                                         </SwipeItems>
                                     </SwipeView.RightItems>
                                     <Grid Padding="5,0,10,0"
-                                          ColumnDefinitions="*,*,*,*"
-                                          RowDefinitions="50,0.5">
+                                          ColumnDefinitions="80,100,*,*"
+                                          RowDefinitions="50,0.5"
+                                          BackgroundColor="White"
+                                          >
                                         <Label Text="{Binding ma}"
-                                               FontSize="25"
+                                               FontSize="20"
                                                TextColor="{Binding mau}"
                                                Grid.Column="0"
                                                Grid.Row="0"
-                                               VerticalOptions="CenterAndExpand" />
+                                               VerticalOptions="CenterAndExpand" 
+                                               HorizontalOptions="Center"/>
                                         <Label Text="{Binding gia}"
-                                               FontSize="25"
+                                               FontSize="20"
                                                TextColor="{Binding mau}"
                                                Grid.Column="1"
                                                HorizontalOptions="End"
                                                Grid.Row="0"
                                                VerticalOptions="CenterAndExpand" />
                                         <Label Text="{Binding phantram}"
-                                               FontSize="25"
+                                               FontSize="20"
                                                TextColor="{Binding mau}"
                                                Grid.Column="2"
                                                HorizontalOptions="End"
                                                Grid.Row="0"
                                                VerticalOptions="CenterAndExpand"
-                                               IsVisible="{Binding IsSessionExpried, Mode=TwoWay}"></Label>
-                                        <!--<Label Text="{Binding phantram1}"
-                                       FontSize="25"
-                                       TextColor="{Binding mau}"
-                                       Grid.Column="2"
-                                       HorizontalOptions="End"
-                                       Grid.Row="0"
-                                       VerticalOptions="CenterAndExpand" 
-                                       IsVisible="{Binding check6}"/>-->
+                                               IsVisible="{Binding check7}"></Label>
+                                        <Label Text="{Binding phantram1}"
+                                               FontSize="20"
+                                               TextColor="{Binding mau}"
+                                               Grid.Column="2"
+                                               HorizontalOptions="End"
+                                               Grid.Row="0"
+                                               VerticalOptions="CenterAndExpand" 
+                                               IsVisible="{Binding check6}"/>
                                         <Label Text="{Binding khoiluong}"
-                                               FontSize="25"
+                                               FontSize="20"
                                                TextColor="Black"
                                                Grid.Column="3"
                                                HorizontalOptions="End"

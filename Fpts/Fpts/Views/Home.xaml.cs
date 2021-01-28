@@ -42,10 +42,26 @@ namespace Fpts.Views
             {
                 lbltoantu.Text = "+/-(%)";
             }
-            else
+            else 
+            {
                 lbltoantu.Text = "+/-";
-
-
+            }
+                
+            foreach(var item in test1.Giaodich)
+            {
+                if (test == false)
+                {
+                    item.check7 = true;
+                    item.check6 = false;
+                }
+                else
+                {
+                    item.check7 = false;
+                    item.check6 = true;
+                }
+            }
+            list2.ItemsSource = "";
+            list2.ItemsSource = test1.Giaodich;
 
         }
 
@@ -94,6 +110,8 @@ namespace Fpts.Views
             check.IsVisible = false;
             entry.IsVisible = false;
             button.IsVisible = true;
+            var vm = (HomeViewModel)BindingContext;
+            vm.listnote.Add(new note { notetext =  entry.Text});
             
         }
     }   

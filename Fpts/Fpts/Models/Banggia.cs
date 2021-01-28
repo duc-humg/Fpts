@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Prism.Mvvm;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 
 namespace Fpts.Models
 {
-    public class Banggia 
+    public class Banggia : BindableBase
     {
         
         public string Ma { get; set; }
@@ -25,6 +26,8 @@ namespace Fpts.Models
         public bool check3 { get; set; }
         public bool check4 { get; set; }
         public bool check5 { get; set; }
+        public bool check6 { get; set; }
+        public bool check7 { get; set; }
         public string img { get; set; }
     }
 }
