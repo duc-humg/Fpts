@@ -17,10 +17,10 @@
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="125" />
+                <RowDefinition Height="130" />
                 <RowDefinition Height="4" />
                 <RowDefinition Height="50" />
-                <RowDefinition Height="35" />
+                <RowDefinition Height="40" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <BoxView BackgroundColor="Black"
@@ -37,8 +37,9 @@
                             <Image Source="right.png"
                                    Aspect="AspectFill"
                                    VerticalOptions="CenterAndExpand"
-                                   HeightRequest="50"
-                                   WidthRequest="50">
+                                   HorizontalOptions="CenterAndExpand"
+                                   HeightRequest="30"
+                                   WidthRequest="30">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                                 </Image.GestureRecognizers>
@@ -52,7 +53,7 @@
                         <DataTemplate>
                             <Grid Padding="0,0,0,0">
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="28" />
+                                    <RowDefinition Height="33" />
                                     <RowDefinition Height="32" />
                                     <RowDefinition Height="25" />
                                     <RowDefinition Height="20" />
@@ -69,6 +70,7 @@
                                        FontSize="22"
                                        FontFamily="helveticaneue.ttf"
                                        HorizontalOptions="CenterAndExpand"
+                                       VerticalOptions="End"
                                        Padding="0,5,0,0"/>
                                 <Label Grid.Row="1"
                                        Text="{Binding thaydoi}"
@@ -168,24 +170,27 @@
                        HorizontalOptions="End"
                        FontFamily="helveticaneue.ttf" />
                 <Grid Grid.Column="2"
-                      RowDefinitions="5,*" 
+                      RowDefinitions="10,*" 
                       HorizontalOptions="End"
                       Padding="0"
                       Margin="0"
                       RowSpacing="0"
                       ColumnSpacing="0">
-                    <Image Source="goctren.png" 
-                           Grid.Row="0"/>
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" />
+                    </Grid.GestureRecognizers>
+                    <Image Source="goctren.png"
+                           Grid.Row="0"
+                           HorizontalOptions="EndAndExpand">
+                    </Image>
                     <Label Text="+/-"
                            FontSize="18"
                            TextColor="Black"
                            Grid.Row="1"
-                           HorizontalOptions="End"
+                           HorizontalOptions="EndAndExpand"
                            x:Name="lbltoantu"
-                           FontFamily="helveticaneue.ttf">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" />
-                        </Label.GestureRecognizers>
+                           FontFamily="helveticaneue.ttf"
+                           VerticalOptions="FillAndExpand">
                     </Label>
                 </Grid>
                 <Label Text="Khối lượng"
@@ -338,24 +343,45 @@
                     <StackLayout Grid.Row="1"
                                  Grid.RowSpan="2"
                                  Grid.ColumnSpan="2"
-                                 
                                  Margin="0"
                                  Padding="0"
                                  Spacing="0">
                         <ListView ItemsSource="{Binding listnote}"
+                                  x:Name="listnote1"
                                   Margin="10,10,10,10">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <ViewCell>
                                         <ViewCell.View>
-                                            <StackLayout>
-                                                <Label Text="{Binding notetext}"
-                                                       TextColor="Black"
-                                                       FontSize="18" VerticalOptions="CenterAndExpand"/>
-                                                <BoxView BackgroundColor="Gray"
-                                                         HeightRequest="0.5"
-                                                         VerticalOptions="CenterAndExpand" />
-                                            </StackLayout>
+                                            <SwipeView>
+                                                <SwipeView.RightItems>
+                                                    <SwipeItems>
+                                                        <SwipeItem Text="Xóa"
+                                                                   BackgroundColor="red"
+                                                                   Command="{Binding Path=BindingContext.Delete1Command , Source={x:Reference listnote1}}"
+                                                                   CommandParameter="{Binding}" />
+                                                    </SwipeItems>
+                                                </SwipeView.RightItems>
+                                                <Grid ColumnDefinitions="*,25"
+                                                      RowDefinitions="*,1">
+                                                    <Label Text="{Binding notetext}"
+                                                           TextColor="Black"
+                                                           FontSize="18"
+                                                           VerticalOptions="CenterAndExpand"
+                                                           Grid.Row="0"
+                                                           Grid.Column="0" />
+                                                    <BoxView BackgroundColor="Gray"
+                                                             HeightRequest="0.5"
+                                                             VerticalOptions="CenterAndExpand"
+                                                             Grid.ColumnSpan="2"
+                                                             Grid.Row="1" />
+                                                    <Image Source="{Binding image}"
+                                                           Grid.Column="1"
+                                                           Grid.Row="0"
+                                                           HorizontalOptions="CenterAndExpand"
+                                                           VerticalOptions="CenterAndExpand" />
+                                                </Grid>
+                                            </SwipeView>
                                         </ViewCell.View>
                                     </ViewCell>
                                 </DataTemplate>

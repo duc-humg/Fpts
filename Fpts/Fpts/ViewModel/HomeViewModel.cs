@@ -22,6 +22,7 @@ namespace Fpts.ViewModel
         public ObservableCollection<Banggia> Giaodich { get; set; }
         public ObservableCollection<note> listnote { get; set; }
         public Command<object> DeleteCommand { get; set; }
+        public Command<object> Delete1Command { get; set; }
         public event PropertyChangedEventHandler PropertyChanged;
 
         private string _notetext;
@@ -42,9 +43,10 @@ namespace Fpts.ViewModel
         {
             //
             listnote = new ObservableCollection<note>();
-            listnote.Add(new Models.note { notetext = "bcd" });
+            listnote.Add(new Models.note { notetext = "bcd",image= "kiemtra.png" });
             Giaodich = new ObservableCollection<Banggia>();
             DeleteCommand = new Command<object>(Click);
+            Delete1Command = new Command<object>(Click1);
             Giaodich.Add(new Banggia { Ma = "VNI", thaydoi = "1164.21", sogd = 28.53, thaydoi1 = "2.60%", monney = "15758.59 tỷ", ma = "TS3", gia = "35", phantram = -0.5, khoiluong = "56,300", phantram1 = 2.5, check7 = true, check6 = false });
             Giaodich.Add(new Banggia { Ma = "VN100", thaydoi = "1107.82", sogd = 30.53, thaydoi1 = "2.60%", monney = "15758.59 tỷ", ma = "PTV", gia = "30", phantram = 0, khoiluong = "56,300", phantram1 = 1.5, check7 = true, check6 = false });
             Giaodich.Add(new Banggia { Ma = "VN30", thaydoi = "1151.3", sogd = 35.53, thaydoi1 = "2.60%", monney = "15758.59 tỷ", ma = "PVI", gia = "31", phantram = -0.6, khoiluong = "56,300", phantram1 = 0.0, check7 = true, check6 = false });
@@ -92,6 +94,13 @@ namespace Fpts.ViewModel
                 }
             }
         }
+
+        private void Click1(object obj)
+        {
+            var ik = obj as note;
+            listnote.Remove(ik);
+        }
+
         public bool test;
         private async void Click(object obj)
         {

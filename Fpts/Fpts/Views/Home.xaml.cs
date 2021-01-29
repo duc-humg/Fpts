@@ -88,14 +88,17 @@ namespace Fpts.Views
             note.IsVisible = false;
         }
 
-          private async void TapGestureRecognizer_Tapped_6(object sender, EventArgs e)
+          private void TapGestureRecognizer_Tapped_6(object sender, EventArgs e)
         {
             boxview.IsVisible = true;
             boxview1.IsVisible = true;
            
             boxview3.IsVisible = true;
             note.IsVisible = true;
-            
+            check.IsVisible = false;
+            entry.IsVisible = false;
+            button.IsVisible = true;
+
         }
 
         private void Button_Clicked(object sender, EventArgs e)
@@ -103,16 +106,29 @@ namespace Fpts.Views
             check.IsVisible = true;
             entry.IsVisible = true;
             button.IsVisible = false;
+            entry.Focus();
         }
 
         private void TapGestureRecognizer_Tapped_7(object sender, EventArgs e)
         {
-            check.IsVisible = false;
-            entry.IsVisible = false;
-            button.IsVisible = true;
-            var vm = (HomeViewModel)BindingContext;
-            vm.listnote.Add(new note { notetext =  entry.Text});
             
+            var vm = (HomeViewModel)BindingContext;
+            if (entry.Text == "")
+            {
+                check.IsVisible = false;
+                entry.IsVisible = false;
+                button.IsVisible = true;
+                
+            }
+            
+            else
+            {
+                check.IsVisible = false;
+                entry.IsVisible = false;
+                button.IsVisible = true;
+                vm.listnote.Add(new note { notetext = entry.Text, image = "kiemtra.png" });
+            }
+                
         }
 
         

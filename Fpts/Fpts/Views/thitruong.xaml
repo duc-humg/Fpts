@@ -93,30 +93,30 @@
                        Grid.Row="1"
                        HorizontalOptions="End"
                        VerticalOptions="EndAndExpand"/>
-                <Label Text="Thay đổi"
-                       FontSize="20"
-                       TextColor="Black"
-                       Grid.Column="2"
-                       Grid.Row="1"
-                       HorizontalOptions="End"
-                       VerticalOptions="CenterAndExpand"
-                       x:Name="thaydoi1">
-                    <Label.GestureRecognizers>
+                <StackLayout Grid.Column="2"
+                             Grid.Row="1">
+                    <Label Text="Thay đổi"
+                           FontSize="20"
+                           TextColor="Black"
+                           HorizontalOptions="End"
+                           VerticalOptions="CenterAndExpand"
+                           x:Name="thaydoi1"></Label>
+                    <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" />
-                    </Label.GestureRecognizers>
-                </Label>
-                <Label Text="Khối lượng"
-                       FontSize="20"
-                       TextColor="Black"
-                       Grid.Column="3"
-                       Grid.Row="1"
-                       HorizontalOptions="End"
-                       VerticalOptions="EndAndExpand"
-                       x:Name="khoiluong">
-                    <Label.GestureRecognizers>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <StackLayout Grid.Column="3"
+                             Grid.Row="1">
+                    <Label Text="Khối lượng"
+                           FontSize="20"
+                           TextColor="Black"
+                           HorizontalOptions="End"
+                           VerticalOptions="EndAndExpand"
+                           x:Name="khoiluong" />
+                    <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
-                    </Label.GestureRecognizers>
-                </Label>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
                 <Image Source="goctren.png" 
                            Grid.Row="0"
                         Grid.Column="2"
@@ -193,15 +193,20 @@
                                          Grid.ColumnSpan="5"
                                          Grid.Row="1"
                                          VerticalOptions="CenterAndExpand" />
-                                <Image Source="{Binding img}"
-                                       Aspect="Fill"
-                                       Grid.Column="4"
-                                       Grid.RowSpan="2">
-                                    <Image.GestureRecognizers>
+                                <StackLayout  Grid.Column="4"
+                                              Grid.RowSpan="2">
+                                    <Image Source="{Binding img}"
+                                           HeightRequest="20"
+                                           WidthRequest="20"
+                                           VerticalOptions="CenterAndExpand"
+                                           HorizontalOptions="CenterAndExpand">
+                                       
+                                    </Image>
+                                    <StackLayout.GestureRecognizers>
                                         <TapGestureRecognizer Command="{Binding Path=BindingContext.ClickCommand , Source={x:Reference list1}}"
-                                                              CommandParameter="{Binding}"/>
-                                    </Image.GestureRecognizers>
-                                </Image>
+                                                              CommandParameter="{Binding}" />
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
                             </Grid>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
