@@ -128,7 +128,7 @@ namespace Fpts.Views
             bow2.IsVisible = false;
             btnHNX1.IsVisible = false;
             btnHSX1.IsVisible = true;
-            
+            App.test = true;
         }
 
         private void Button_Clicked_1(object sender, EventArgs e)
@@ -139,6 +139,7 @@ namespace Fpts.Views
             bow2.IsVisible = true;
             btnHSX1.IsVisible = false;
             btnHNX1.IsVisible = true;
+            App.test = false;
         }
 
         
@@ -155,12 +156,6 @@ namespace Fpts.Views
 
         }
 
-        private void TapGestureRecognizer_Tapped_2(object sender, EventArgs e)
-        {
-            var vm = (thitruongViewModel)BindingContext;
-            
-
-        }
 
         private void TapGestureRecognizer_Tapped_3(object sender, EventArgs e)
         {

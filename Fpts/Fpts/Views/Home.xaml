@@ -208,10 +208,13 @@
                         <DataTemplate>
                             <ViewCell Height="100">
                                 <SwipeView >
+                                    
                                     <SwipeView.RightItems>
                                         <SwipeItems>
                                             <SwipeItem Text="Xóa"
-                                                       BackgroundColor="red" />
+                                                       BackgroundColor="red"
+                                                       Command="{Binding Path=BindingContext.DeleteCommand , Source={x:Reference list2}}"
+                                                       CommandParameter="{Binding}" />
                                         </SwipeItems>
                                     </SwipeView.RightItems>
                                     <Grid Padding="5,0,10,0"

@@ -140,7 +140,7 @@
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Grid Padding="5,0,10,0"
-                                  ColumnDefinitions="80,80,*,*,20"
+                                  ColumnDefinitions="80,80,*,*,10"
                                   RowDefinitions="40,0.5" >
                                 <Label Text="{Binding Ma}"
                                        FontSize="20"
@@ -194,14 +194,12 @@
                                          Grid.Row="1"
                                          VerticalOptions="CenterAndExpand" />
                                 <Image Source="{Binding img}"
-                                       WidthRequest="20"
-                                       HeightRequest="20"
                                        Aspect="Fill"
                                        Grid.Column="4"
                                        Grid.RowSpan="2">
                                     <Image.GestureRecognizers>
                                         <TapGestureRecognizer Command="{Binding Path=BindingContext.ClickCommand , Source={x:Reference list1}}"
-                                                              CommandParameter="{Binding}" />
+                                                              CommandParameter="{Binding}"/>
                                     </Image.GestureRecognizers>
                                 </Image>
                             </Grid>
