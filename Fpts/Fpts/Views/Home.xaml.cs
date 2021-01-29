@@ -37,7 +37,7 @@ namespace Fpts.Views
         {
             test = !test;
             var test1 = (HomeViewModel)BindingContext;
-            test1.IsSessionExpried = !test1.IsSessionExpried;
+           
             if (test == true)
             {
                 lbltoantu.Text = "+/-(%)";
@@ -114,5 +114,7 @@ namespace Fpts.Views
             vm.listnote.Add(new note { notetext =  entry.Text});
             
         }
-    }   
+
+        
+    }
 }

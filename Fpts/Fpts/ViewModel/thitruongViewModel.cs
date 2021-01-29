@@ -14,7 +14,7 @@ namespace Fpts.ViewModel
         public ObservableCollection<Banggia> HNX { get; set; }
         public Command<object> ClickCommand { get; set; }
 
-        public bool test ;
+        
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -38,7 +38,7 @@ namespace Fpts.ViewModel
             HSX.Add(new Banggia { Ma = "HNXMAN", thaydoi = "1176.21", sogd = 38.53, thaydoi1 = "2.60%", monney = "15758.59 tỷ", ma = "MBB", gia = "30", phantram = 1.6, khoiluong = "56,300", check1 = true, check2 = false, check3 = true, check4 = false, img = "sao.png" });
             HSX.Add(new Banggia { Ma = "HNXMSCA", thaydoi = "1176.21", sogd = 38.53, thaydoi1 = "2.60%", monney = "15758.59 tỷ", ma = "MBB", gia = "30", phantram = 1.6, khoiluong = "56,300", check1 = true, check2 = false, check3 = true, check4 = false, img = "sao.png" });
             HSX.Add(new Banggia { Ma = "UPCOM", thaydoi = "1176.21", sogd = 38.53, thaydoi1 = "2.60%", monney = "15758.59 tỷ", ma = "MBB", gia = "30", phantram = 1.6, khoiluong = "56,300", check1 = true, check2 = false, check3 = true, check4 = false, img = "sao.png" });
-            ClickCommand = new Command<object>(Click);
+            
             foreach (var item in HNX)
             {
                 if (item.sogd > 40.00)
@@ -119,22 +119,44 @@ namespace Fpts.ViewModel
                 else
                     icon.img = "saovang.png";
             }
+            ClickCommand = new Command<object>(Click);
         }
 
         private void Click(object obj)
         {
-            test = !test;   
-            var mn = obj as Banggia;
-            if (mn.check5 == false)
+            
+            if (App.test == true)//HSX
             {
-                mn.check5 = true;
-                mn.img = "saovang.png";
+                
+                var mn = obj as Banggia;
+                if (mn.check5 == true)
+                {
+                    mn.check5 = true;
+                    mn.img = "saovang.png";
+                }
+                else
+                {
+                    mn.check5 = false;
+                    mn.img = "sao.png";
+                }
             }
             else
             {
-                mn.check5 = false;
-                mn.img = "sao.png";
+                
+                var mn = obj as Banggia;//HSX
+                if (mn.check5 == true)
+                {
+                    mn.check5 = true;
+                    mn.img = "saovang.png";
+                }
+                else
+                {
+                    mn.check5 = false;
+                    mn.img = "sao.png";
+                }
             }
+
+
         }
     }
 

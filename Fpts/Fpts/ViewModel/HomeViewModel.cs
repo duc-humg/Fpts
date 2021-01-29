@@ -6,10 +6,11 @@ using Fpts.Models;
 using Xamarin.Forms;
 using Fpts.Views;
 using System.ComponentModel;
+using System.Threading.Tasks;
 
 namespace Fpts.ViewModel
 {
-    public class HomeViewModel  
+    public class HomeViewModel
     {
         protected void OnPropertyChanged(string propertyName)
         {
@@ -20,19 +21,11 @@ namespace Fpts.ViewModel
 
         public ObservableCollection<Banggia> Giaodich { get; set; }
         public ObservableCollection<note> listnote { get; set; }
-        private bool _isSessionExpired;
+        public Command<object> DeleteCommand { get; set; }
         public event PropertyChangedEventHandler PropertyChanged;
-        public bool IsSessionExpried
-        {
-            get { return _isSessionExpired; }
-            set
-            {
-                _isSessionExpired = value;
-                OnPropertyChanged("IsSessionExpried");
-            }
-        }
+
         private string _notetext;
-       
+
         //public string notetext
         //{
         //    get { return _notetext; }
@@ -44,18 +37,15 @@ namespace Fpts.ViewModel
         /// <summary>
         /// aaaaaaaaaaaaaaaaa
         /// </summary>
-        public void abc()
-        {
 
-        }
         public HomeViewModel()
         {
             //
             listnote = new ObservableCollection<note>();
             listnote.Add(new Models.note { notetext = "bcd" });
-            IsSessionExpried = false;
             Giaodich = new ObservableCollection<Banggia>();
-            Giaodich.Add(new Banggia { Ma = "VNI", thaydoi = "1164.21", sogd = 28.53, thaydoi1 = "2.60%", monney = "15758.59 tỷ", ma = "TS3", gia = "35", phantram = -0.5, khoiluong = "56,300", phantram1 = 2.5, check7 = true ,check6=false });
+            DeleteCommand = new Command<object>(Click);
+            Giaodich.Add(new Banggia { Ma = "VNI", thaydoi = "1164.21", sogd = 28.53, thaydoi1 = "2.60%", monney = "15758.59 tỷ", ma = "TS3", gia = "35", phantram = -0.5, khoiluong = "56,300", phantram1 = 2.5, check7 = true, check6 = false });
             Giaodich.Add(new Banggia { Ma = "VN100", thaydoi = "1107.82", sogd = 30.53, thaydoi1 = "2.60%", monney = "15758.59 tỷ", ma = "PTV", gia = "30", phantram = 0, khoiluong = "56,300", phantram1 = 1.5, check7 = true, check6 = false });
             Giaodich.Add(new Banggia { Ma = "VN30", thaydoi = "1151.3", sogd = 35.53, thaydoi1 = "2.60%", monney = "15758.59 tỷ", ma = "PVI", gia = "31", phantram = -0.6, khoiluong = "56,300", phantram1 = 0.0, check7 = true, check6 = false });
             Giaodich.Add(new Banggia { Ma = "VNALL", thaydoi = "1109.72", sogd = 32.53, thaydoi1 = "2.60%", monney = "15758.59 tỷ", ma = "SHB", gia = "32", phantram = -0.3, khoiluong = "56,300", phantram1 = 1.1, check7 = true, check6 = false });
@@ -102,6 +92,17 @@ namespace Fpts.ViewModel
                 }
             }
         }
-        
+        public bool test;
+        private async void Click(object obj)
+        {
+            var res = await App.Current.MainPage.DisplayAlert("Success", "Your data are saved", "Ok", "Cancel");
+            var im = obj as Banggia;
+
+            if (res)
+            {
+                Giaodich.Remove(im);
+            }
+        }
+    
     }
 }

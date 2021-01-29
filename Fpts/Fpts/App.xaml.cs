@@ -12,6 +12,8 @@ namespace Fpts
 
             MainPage = new MasterDetailMainview();
         }
+        public static bool test=true;
+        public static bool test1;
 
         protected override void OnStart()
         {
