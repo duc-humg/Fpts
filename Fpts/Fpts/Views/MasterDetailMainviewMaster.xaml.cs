@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Fpts.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -20,37 +21,52 @@ namespace Fpts
         public MasterDetailMainviewMaster()
         {
             InitializeComponent();
-
+            
             BindingContext = new MasterDetailMainviewMasterViewModel();
-            ListView = MenuItemsListView;
+            
+        }
+        
+        public bool test;
+        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            test = !test;
+            var vm = (MasterDetailMainviewMasterViewModel)BindingContext;
+            
+            foreach(var item in vm.list1)
+            {
+                if (test == true)
+                {
+                    item.check1 = true;
+                    item.check4 = false;
+                    setup.IsVisible = false;
+                    power.IsVisible = false;
+                    tick.IsVisible = true;
+                    
+                }
+                
+            }
         }
 
-        class MasterDetailMainviewMasterViewModel : INotifyPropertyChanged
+        private void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
         {
-            public ObservableCollection<MasterDetailMainviewMasterMenuItem> MenuItems { get; set; }
-
-            public MasterDetailMainviewMasterViewModel()
+            test = !test;
+            var vm = (MasterDetailMainviewMasterViewModel)BindingContext;
+            
+            foreach (var item in vm.list1)
             {
-                MenuItems = new ObservableCollection<MasterDetailMainviewMasterMenuItem>(new[]
+                if (test == false && item.sao=="saovang.png")
                 {
-                    new MasterDetailMainviewMasterMenuItem { Id = 0, Title = "Page 1" },
-                    new MasterDetailMainviewMasterMenuItem { Id = 1, Title = "Page 2" },
-                    new MasterDetailMainviewMasterMenuItem { Id = 2, Title = "Page 3" },
-                    new MasterDetailMainviewMasterMenuItem { Id = 3, Title = "Page 4" },
-                    new MasterDetailMainviewMasterMenuItem { Id = 4, Title = "Page 5" },
-                });
-            }
+                    item.check1 = false;
+                    item.check4 = true;
+                    setup.IsVisible = true;
+                    power.IsVisible = true;
+                    tick.IsVisible = false;
+                    listview.IsVisible = false;
+                    listview1.IsVisible = true;
+                }
 
-            #region INotifyPropertyChanged Implementation
-            public event PropertyChangedEventHandler PropertyChanged;
-            void OnPropertyChanged([CallerMemberName] string propertyName = "")
-            {
-                if (PropertyChanged == null)
-                    return;
-
-                PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }
-            #endregion
         }
     }
 }
+    

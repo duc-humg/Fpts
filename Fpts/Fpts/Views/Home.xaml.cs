@@ -86,6 +86,8 @@ namespace Fpts.Views
             boxview1.IsVisible = false;
             boxview3.IsVisible = false;
             note.IsVisible = false;
+            entry.Text = "";
+
         }
 
           private void TapGestureRecognizer_Tapped_6(object sender, EventArgs e)
@@ -109,25 +111,35 @@ namespace Fpts.Views
             entry.Focus();
         }
 
-        private void TapGestureRecognizer_Tapped_7(object sender, EventArgs e)
+        private async void TapGestureRecognizer_Tapped_7(object sender, EventArgs e)
         {
             
             var vm = (HomeViewModel)BindingContext;
-            if (entry.Text == "")
+            int i = 0;
+            foreach(var itim in vm.listnote)
             {
-                check.IsVisible = false;
-                entry.IsVisible = false;
-                button.IsVisible = true;
-                
+                if (entry.Text == itim.notetext)
+                {
+                    await DisplayAlert("Success", "Your data are saved", "Ok");
+                    i = 1;
+                }
             }
-            
-            else
+            if (entry.Text != "" && i != 1)
             {
                 check.IsVisible = false;
                 entry.IsVisible = false;
                 button.IsVisible = true;
                 vm.listnote.Add(new note { notetext = entry.Text, image = "kiemtra.png" });
             }
+            else
+            {
+                check.IsVisible = false;
+                entry.IsVisible = false;
+                button.IsVisible = true;
+
+            }
+           
+            entry.Text = "";
                 
         }
 

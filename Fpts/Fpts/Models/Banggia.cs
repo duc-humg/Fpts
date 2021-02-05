@@ -23,6 +23,7 @@ namespace Fpts.Models
         public double phantram1 { get; set; }
         public string khoiluong { get; set; }
         public string mau { get; set; }
+
         public bool check1 { get; set; }
         public bool check2 { get; set; }
         public bool check3 { get; set; }

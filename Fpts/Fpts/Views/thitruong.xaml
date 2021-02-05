@@ -93,42 +93,45 @@
                        Grid.Row="1"
                        HorizontalOptions="End"
                        VerticalOptions="EndAndExpand"/>
-                <StackLayout Grid.Column="2"
-                             Grid.Row="1">
+                <Grid Grid.Column="2"
+                      Grid.RowSpan="2"
+                      RowDefinitions="20,*">
                     <Label Text="Thay đổi"
+                           Grid.Row="1"
                            FontSize="20"
                            TextColor="Black"
                            HorizontalOptions="End"
                            VerticalOptions="CenterAndExpand"
                            x:Name="thaydoi1"></Label>
-                    <StackLayout.GestureRecognizers>
+                    <Image Source="goctren.png"
+                           Grid.Row="0"
+                           VerticalOptions="Center"
+                           HorizontalOptions="End"
+                           HeightRequest="10" />
+                    <Grid.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" />
-                    </StackLayout.GestureRecognizers>
-                </StackLayout>
-                <StackLayout Grid.Column="3"
-                             Grid.Row="1">
+                    </Grid.GestureRecognizers>
+                </Grid>
+                <Grid Grid.Column="3"
+                      Grid.RowSpan="2">
                     <Label Text="Khối lượng"
                            FontSize="20"
+                           Grid.Row="1"
                            TextColor="Black"
                            HorizontalOptions="End"
                            VerticalOptions="EndAndExpand"
                            x:Name="khoiluong" />
-                    <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
-                    </StackLayout.GestureRecognizers>
-                </StackLayout>
-                <Image Source="goctren.png" 
+                    <Image Source="goctren.png"
                            Grid.Row="0"
-                        Grid.Column="2"
-                       VerticalOptions="Center"
-                       HorizontalOptions="End"
-                       HeightRequest="10"/>
-                <Image Source="goctren.png"
-                       Grid.Row="0"
-                       Grid.Column="3"
-                       VerticalOptions="Center"
-                       HorizontalOptions="End"
-                       HeightRequest="10"/>
+                           VerticalOptions="Center"
+                           HorizontalOptions="End"
+                           HeightRequest="10" />
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                    </Grid.GestureRecognizers>
+                </Grid>
+                
+                
             </Grid>
             <StackLayout Orientation="Vertical"
                          Grid.Row="2">
@@ -140,8 +143,8 @@
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Grid Padding="5,0,10,0"
-                                  ColumnDefinitions="80,80,*,*,10"
-                                  RowDefinitions="40,0.5" >
+                                  ColumnDefinitions="80,80,*,*,15"
+                                  RowDefinitions="40,0.15" >
                                 <Label Text="{Binding Ma}"
                                        FontSize="20"
                                        TextColor="{Binding mau}"
@@ -196,8 +199,8 @@
                                 <StackLayout  Grid.Column="4"
                                               Grid.RowSpan="2">
                                     <Image Source="{Binding img}"
-                                           HeightRequest="20"
-                                           WidthRequest="20"
+                                           HeightRequest="30"
+                                           WidthRequest="30"
                                            VerticalOptions="CenterAndExpand"
                                            HorizontalOptions="CenterAndExpand">
                                        
