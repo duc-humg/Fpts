@@ -24,7 +24,7 @@
                         <Image Source="{Binding sao}"
                                Grid.Column="2"
                                HeightRequest="20"
-                               IsVisible="{Binding check1}">
+                               IsVisible="false">
                             <Image.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding Path=BindingContext.CheckCommand , Source={x:Reference listview}}"
                                                       CommandParameter="{Binding}" />
@@ -46,7 +46,8 @@
                                       BackgroundColor="Transparent">
                                     <Image Source="{Binding image}"
                                            Grid.Column="0"
-                                           HeightRequest="30" />
+                                           HeightRequest="30" 
+                                           />
                                     <Label Text="{Binding text4}"
                                            FontSize="20"
                                            Grid.Column="1"
@@ -55,7 +56,7 @@
                                     <Image Source="down.png"
                                            Grid.Column="2"
                                            HeightRequest="20"
-                                           IsVisible="{Binding check4}"
+                                           IsVisible="true"
                                           >
                                         <Image.Triggers>
                                             <DataTrigger TargetType="Image"
@@ -72,6 +73,182 @@
                                             </DataTrigger>
                                         </Image.Triggers>
                                     </Image>
+                                </Grid>
+                            </Expander.Header>
+                            <Grid ColumnDefinitions="100,*,*"
+                                  RowDefinitions="*,*,*,*">
+                                <Label Text="{Binding text3}"
+                                       Grid.Column="1"
+                                       Grid.ColumnSpan="2"
+                                       Grid.Row="0"
+                                       VerticalOptions="CenterAndExpand"
+                                       HorizontalOptions="Start"
+                                       FontSize="20"
+                                       TextColor="Black" />
+                                <Label Text="{Binding text11}"
+                                       Grid.Column="1"
+                                       Grid.ColumnSpan="2"
+                                       Grid.Row="1"
+                                       VerticalOptions="CenterAndExpand"
+                                       HorizontalOptions="Start"
+                                       FontSize="20"
+                                       TextColor="Black" />
+                                <Label Text="{Binding text5}"
+                                       Grid.Column="1"
+                                       Grid.ColumnSpan="2"
+                                       Grid.Row="2"
+                                       VerticalOptions="CenterAndExpand"
+                                       HorizontalOptions="Start"
+                                       FontSize="20"
+                                       TextColor="Black" />
+                                <Label Text="{Binding text6}"
+                                       Grid.Column="1"
+                                       Grid.ColumnSpan="2"
+                                       Grid.Row="0"
+                                       VerticalOptions="CenterAndExpand"
+                                       HorizontalOptions="Start"
+                                       FontSize="20"
+                                       TextColor="Black" />
+                                <Label Text="{Binding text7}"
+                                       Grid.Column="1"
+                                       Grid.ColumnSpan="2"
+                                       Grid.Row="1"
+                                       VerticalOptions="CenterAndExpand"
+                                       HorizontalOptions="Start"
+                                       FontSize="20"
+                                       TextColor="Black" />
+                                <Label Text="{Binding text8}"
+                                       Grid.Column="1"
+                                       Grid.ColumnSpan="2"
+                                       Grid.Row="2"
+                                       VerticalOptions="CenterAndExpand"
+                                       HorizontalOptions="Start"
+                                       FontSize="20"
+                                       TextColor="Black" />
+                                <Label Text="{Binding text9}"
+                                       Grid.Column="1"
+                                       Grid.ColumnSpan="2"
+                                       Grid.Row="3"
+                                       VerticalOptions="CenterAndExpand"
+                                       HorizontalOptions="Start"
+                                       FontSize="20"
+                                       TextColor="Black" />
+                                <Label Text="{Binding text10}"
+                                       Grid.Column="1"
+                                       Grid.ColumnSpan="2"
+                                       Grid.Row="4"
+                                       VerticalOptions="CenterAndExpand"
+                                       HorizontalOptions="Start"
+                                       FontSize="20"
+                                       TextColor="Black" />
+                            </Grid>
+                        </Expander>
+                        <Image Source="{Binding sao}"
+                               Margin="0,0,30,0"
+                               HeightRequest="20"
+                               IsVisible="false"
+                               HorizontalOptions="EndAndExpand">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Path=BindingContext.CheckCommand , Source={x:Reference listview}}"
+                                                      CommandParameter="{Binding}" />
+                            </Image.GestureRecognizers>
+                            <Image.Triggers>
+                                <DataTrigger TargetType="Image"
+                                             Binding="{Binding Source={RelativeSource AncestorType={x:Type Expander}}, Path=IsExpanded}"
+                                             Value="True">
+                                    <Setter Property="Source"
+                                            Value="saovang.png" />
+                                </DataTrigger>
+                                <DataTrigger TargetType="Image"
+                                             Binding="{Binding Source={x:Reference image}, Path=IsVisible}"
+                                             Value="False">
+                                    <Setter Property="IsVisible"
+                                            Value="False" />
+                                </DataTrigger>
+                            </Image.Triggers>
+                        </Image>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+            <DataTemplate x:Key="top">
+                <ViewCell>
+                    <Grid ColumnDefinitions="*">
+                        <BoxView BackgroundColor="#f2f2f2"
+                                 Grid.ColumnSpan="3" />
+                        <Label Text="{Binding text}"
+                               TextColor="#9a9a9a"
+                               FontSize="18"
+                               VerticalOptions="CenterAndExpand" />
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+            <local:Selected x:Key="selected"
+                            Mid="{StaticResource mid}"
+                            Top="{StaticResource top}"
+                            Bot="{StaticResource bot}" />
+            <DataTemplate x:Key="top2">
+                <ViewCell>
+                    <Grid ColumnDefinitions="30,*,20"
+                          ColumnSpacing="15"
+                          Padding="10,10,30,0"
+                          BackgroundColor="Transparent">
+                        <Image Source="{Binding image}"
+                               Grid.Column="0"
+                               HeightRequest="35" />
+                        <Label Text="{Binding text1}"
+                               FontSize="20"
+                               Grid.Column="1"
+                               TextColor="Black"
+                               VerticalOptions="CenterAndExpand" />
+                        <Image Source="{Binding sao}"
+                               Grid.Column="2"
+                               HeightRequest="20"
+                               IsVisible="{Binding check1}">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Path=BindingContext.CheckCommand , Source={x:Reference listview}}"
+                                                      CommandParameter="{Binding}" />
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+            <DataTemplate x:Key="top3">
+                <ViewCell>
+                    <StackLayout Orientation="Horizontal">
+                        <Expander x:Name="keodai"
+                                  IsVisible="{Binding check3}">
+                            <Expander.Header>
+                                <Grid ColumnDefinitions="30,*,20"
+                                      ColumnSpacing="15"
+                                      Padding="10,10,30,0"
+                                      BackgroundColor="Transparent">
+                                    <Image Source="{Binding image}"
+                                           Grid.Column="0"
+                                           HeightRequest="30" />
+                                    <Label Text="{Binding text1}"
+                                           FontSize="20"
+                                           Grid.Column="1"
+                                           TextColor="Black"
+                                           VerticalOptions="CenterAndExpand" />
+                                    <!--<Image Source="down.png"
+                                           Grid.Column="2"
+                                           HeightRequest="20"
+                                           IsVisible="{Binding check4}">
+                                        <Image.Triggers>
+                                            <DataTrigger TargetType="Image"
+                                                         Binding="{Binding Source={RelativeSource AncestorType={x:Type Expander}}, Path=IsExpanded}"
+                                                         Value="True">
+                                                <Setter Property="Source"
+                                                        Value="up.png" />
+                                            </DataTrigger>
+                                            <DataTrigger TargetType="Image"
+                                                         Binding="{Binding Source={x:Reference image}, Path=IsVisible}"
+                                                         Value="False">
+                                                <Setter Property="IsVisible"
+                                                        Value="False" />
+                                            </DataTrigger>
+                                        </Image.Triggers>
+                                    </Image>-->
                                 </Grid>
                             </Expander.Header>
                             <Grid ColumnDefinitions="100,*,*"
@@ -169,7 +346,7 @@
                     </StackLayout>
                 </ViewCell>
             </DataTemplate>
-            <DataTemplate x:Key="top">
+            <DataTemplate x:Key="top1">
                 <ViewCell>
                     <Grid ColumnDefinitions="*">
                         <BoxView BackgroundColor="#f2f2f2"
@@ -181,11 +358,12 @@
                     </Grid>
                 </ViewCell>
             </DataTemplate>
-            <local:Selected x:Key="selected"
-                            Mid="{StaticResource mid}"
-                            Top="{StaticResource top}"
-                            Bot="{StaticResource bot}" />
-            <DataTemplate x:Key="top2">
+            <local:Selected1 x:Key="selected1"
+                             top2 ="{StaticResource top2}"
+                             top1="{StaticResource top1}"
+                             top3="{StaticResource top3}"
+                             />
+            <DataTemplate x:Key="mid1">
                 <ViewCell>
                     <Grid ColumnDefinitions="30,*,20"
                           ColumnSpacing="15"
@@ -211,7 +389,7 @@
                     </Grid>
                 </ViewCell>
             </DataTemplate>
-            <DataTemplate x:Key="top3">
+            <DataTemplate x:Key="bot1">
                 <ViewCell>
                     <StackLayout Orientation="Horizontal">
                         <Expander x:Name="keodai"
@@ -224,7 +402,7 @@
                                     <Image Source="{Binding image}"
                                            Grid.Column="0"
                                            HeightRequest="30" />
-                                    <Label Text="{Binding text4}"
+                                    <Label Text="{Binding text1}"
                                            FontSize="20"
                                            Grid.Column="1"
                                            TextColor="Black"
@@ -345,7 +523,7 @@
                     </StackLayout>
                 </ViewCell>
             </DataTemplate>
-            <DataTemplate x:Key="top1">
+            <DataTemplate x:Key="topp">
                 <ViewCell>
                     <Grid ColumnDefinitions="*">
                         <BoxView BackgroundColor="#f2f2f2"
@@ -357,11 +535,10 @@
                     </Grid>
                 </ViewCell>
             </DataTemplate>
-            <local:Selected1 x:Key="selected1"
-                             top2 ="{StaticResource top2}"
-                             top1="{StaticResource top1}"
-                             top3="{StaticResource top3}"
-                             />
+            <local:Selected2 x:Key="selected2"
+                            mid1="{StaticResource mid1}"
+                            topp="{StaticResource topp}"
+                            bot1="{StaticResource bot1}" />
         </ResourceDictionary>
     </ContentPage.Resources>
     <StackLayout>
@@ -402,7 +579,11 @@
                            HeightRequest="30"
                            WidthRequest="30"
                            VerticalOptions="CenterAndExpand"
-                           HorizontalOptions="CenterAndExpand" />
+                           HorizontalOptions="CenterAndExpand">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2" />
+                        </Image.GestureRecognizers>
+                    </Image>
                 </StackLayout>
                 <StackLayout Grid.Column="3"
                              Grid.RowSpan="2"
@@ -414,7 +595,9 @@
                            VerticalOptions="CenterAndExpand"
                            HorizontalOptions="CenterAndExpand">
                         <Image.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" />
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"
+                                                  Command="{Binding Path=BindingContext.TickCommand , Source={x:Reference listview2}}"
+                                                  CommandParameter="{Binding}" />
                         </Image.GestureRecognizers>
                     </Image>
                 </StackLayout>
@@ -444,6 +627,13 @@
                            ItemTemplate="{StaticResource selected1}"
                            BackgroundColor="White"
                            SelectedItem="{Binding Selected1}"
+                           AutoFitMode="DynamicHeight"
+                           IsVisible="false"></xforms:SfListView>
+        <xforms:SfListView x:Name="listview2"
+                           ItemsSource="{Binding list3}"
+                           ItemTemplate="{StaticResource selected2}"
+                           BackgroundColor="White"
+                           SelectedItem="{Binding Selected2}"
                            AutoFitMode="DynamicHeight"
                            IsVisible="false"></xforms:SfListView>
     </StackLayout>
