@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Fpts.Views.Home"
-             BackgroundColor="White">
+             BackgroundColor="White"
+             >
     <ContentPage.ToolbarItems>
         <ToolbarItem IconImageSource="sort.png"
                      Priority="0"
@@ -25,13 +26,14 @@
             </Grid.RowDefinitions>
             <BoxView BackgroundColor="Black"
                      Opacity="0.5"
-                     Grid.RowSpan="5" 
-                     x:Name="boxview"
-                     IsVisible="false"/>
+                     Grid.RowSpan="5"
+                     x:Name="boxBongmo"
+                     IsVisible="false" /><!--bóng mờ-->
             <StackLayout Orientation="Horizontal"
                          Grid.Row="0">
-                <CollectionView x:Name="list1"
-                                ItemsSource="{Binding Giaodich}">
+                <CollectionView x:Name="listChiSo"
+                                ItemsSource="{Binding ListMaChungKhoan}">
+                    <!--list chỉ số-->
                     <CollectionView.Footer>
                         <StackLayout>
                             <Image Source="right.png"
@@ -41,9 +43,10 @@
                                    HeightRequest="30"
                                    WidthRequest="30">
                                 <Image.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                                    <TapGestureRecognizer Tapped="Tap_thitruong" />
                                 </Image.GestureRecognizers>
                             </Image>
+                            <!--nút chuyển trang-->
                         </StackLayout>
                     </CollectionView.Footer>
                     <CollectionView.ItemsLayout>
@@ -65,39 +68,38 @@
                                 </Grid.ColumnDefinitions>
                                 <Label Grid.Row="0"
                                        Grid.ColumnSpan="2"
-                                       Text="{Binding Ma}"
+                                       Text="{Binding MaChiSo}"
                                        TextColor="Black"
                                        FontSize="22"
                                        FontFamily="helveticaneue.ttf"
                                        HorizontalOptions="CenterAndExpand"
                                        VerticalOptions="End"
-                                       Padding="0,5,0,0"/>
+                                       Padding="0,5,0,0" />
                                 <Label Grid.Row="1"
-                                       Text="{Binding thaydoi}"
-                                       TextColor="{Binding color}"
+                                       Text="{Binding GiaChiSo}"
+                                       TextColor="{Binding ColorNumber}"
                                        FontSize="22"
                                        FontAttributes="Bold"
                                        Grid.ColumnSpan="2"
-                                       HorizontalOptions="CenterAndExpand" 
-                                       Padding="0,2,0,5"/>
-                                <Label Text="{Binding sogd}"
-                                       TextColor="{Binding color}"
+                                       HorizontalOptions="CenterAndExpand"
+                                       Padding="0,2,0,5" />
+                                <Label Text="{Binding ThayDoiOne}"
+                                       TextColor="{Binding ColorNumber}"
                                        FontSize="15"
                                        Grid.Column="0"
                                        Grid.Row="2"
                                        FontFamily="helveticaneue.ttf"
                                        HorizontalOptions="CenterAndExpand" />
-                                <Label Text="{Binding thaydoi1}"
-                                       TextColor="{Binding color}"
+                                <Label Text="{Binding ThayDoiTow}"
+                                       TextColor="{Binding ColorNumber}"
                                        FontSize="16"
-                                       Grid.Column="1"  
+                                       Grid.Column="1"
                                        Grid.Row="2"
                                        FontFamily="helveticaneue.ttf"
                                        HorizontalOptions="StartAndExpand"
                                        Padding="0,0,0,5"
-                                       Margin="0"
-                                      />
-                                <Label Text="{Binding monney}"
+                                       Margin="0" />
+                                <Label Text="{Binding GiaTri}"
                                        TextColor="Black"
                                        FontSize="15"
                                        Grid.Column="0"
@@ -108,7 +110,8 @@
                             </Grid>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
-                </CollectionView>
+                    <!--hiển thị list-->
+                </CollectionView><!--list chỉ số-->
             </StackLayout>
             <BoxView BackgroundColor="#e5e5e5"
                      Grid.Row="1"
@@ -118,8 +121,8 @@
             <BoxView BackgroundColor="Black"
                      Grid.Row="1"
                      Opacity="0.5"
-                     x:Name="boxview1"
-                     IsVisible="false"/>  <!--lam mo-->
+                     x:Name="boxDuongke"
+                     IsVisible="false"/>  <!--lamf mờ đường kẻ-->
             <StackLayout Orientation="Horizontal"
                          Grid.Row="2"
                          Padding="10,10,10,15">
@@ -142,18 +145,17 @@
                            WidthRequest="22"
                            HorizontalOptions="Start">
                         <Image.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_6" />
+                            <TapGestureRecognizer Tapped="Tap_listDanhMuc" />
                         </Image.GestureRecognizers>
                     </Image>
-                        <Image Source="plus.png"
+                    <Image Source="plus.png"
                            Aspect="AspectFit"
                            Grid.Column="2"
                            HeightRequest="22"
                            WidthRequest="22"
-                           HorizontalOptions="Center"
-                            />
-                </Grid>
-            </StackLayout> <!--bang gia-->
+                           HorizontalOptions="Center" />
+                </Grid><!--label bảng giá-->
+            </StackLayout> <!--bảng giá-->
             <Grid ColumnDefinitions="80,100,*,*"
                   RowDefinitions="*,0.5"
                   Padding="5,0,10,0"
@@ -177,7 +179,7 @@
                       RowSpacing="0"
                       ColumnSpacing="0">
                     <Grid.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" />
+                        <TapGestureRecognizer Tapped="Tap_chuyentanggiam" />
                     </Grid.GestureRecognizers>
                     <Image Source="goctren.png"
                            Grid.Row="0"
@@ -188,7 +190,7 @@
                            TextColor="Black"
                            Grid.Row="1"
                            HorizontalOptions="EndAndExpand"
-                           x:Name="lbltoantu"
+                           x:Name="lblToantu"
                            FontFamily="helveticaneue.ttf"
                            VerticalOptions="FillAndExpand">
                     </Label>
@@ -203,12 +205,12 @@
                          HeightRequest="0.5"
                          Grid.ColumnSpan="4"
                          Grid.Row="1" />
-            </Grid> <!--cot -->
+            </Grid> <!--label list chỉ số -->
             <StackLayout Orientation="Vertical"
                          Grid.Row="4"
                          BackgroundColor="White">
-                <ListView ItemsSource="{Binding Giaodich}"
-                          x:Name="list2" >
+                <ListView ItemsSource="{Binding ListMaChungKhoan}"
+                          x:Name="listMaChungKhoan" >
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell Height="100">
@@ -218,46 +220,46 @@
                                         <SwipeItems>
                                             <SwipeItem Text="Xóa"
                                                        BackgroundColor="red"
-                                                       Command="{Binding Path=BindingContext.DeleteCommand , Source={x:Reference list2}}"
+                                                       Command="{Binding Path=BindingContext.DeleteCommand , Source={x:Reference listMaChungKhoan}}"
                                                        CommandParameter="{Binding}" />
                                         </SwipeItems>
-                                    </SwipeView.RightItems>
+                                    </SwipeView.RightItems><!--swipe xóa từng phần tử-->
                                     <Grid Padding="5,0,10,0"
                                           ColumnDefinitions="80,100,*,*"
                                           RowDefinitions="50,0.5"
                                           BackgroundColor="White"
                                           >
-                                        <Label Text="{Binding ma}"
+                                        <Label Text="{Binding MaChungkhoan}"
                                                FontSize="20"
-                                               TextColor="{Binding mau}"
+                                               TextColor="{Binding ColorMa}"
                                                Grid.Column="0"
                                                Grid.Row="0"
                                                VerticalOptions="CenterAndExpand" 
                                                HorizontalOptions="Center"/>
-                                        <Label Text="{Binding gia}"
+                                        <Label Text="{Binding GiaChungKhoan}"
                                                FontSize="20"
-                                               TextColor="{Binding mau}"
+                                               TextColor="{Binding ColorMa}"
                                                Grid.Column="1"
                                                HorizontalOptions="End"
                                                Grid.Row="0"
                                                VerticalOptions="CenterAndExpand" />
-                                        <Label Text="{Binding phantram}"
+                                        <Label Text="{Binding TangGiamOne}"
                                                FontSize="20"
-                                               TextColor="{Binding mau}"
+                                               TextColor="{Binding ColorMa}"
                                                Grid.Column="2"
                                                HorizontalOptions="End"
                                                Grid.Row="0"
                                                VerticalOptions="CenterAndExpand"
-                                               IsVisible="{Binding check7}"></Label>
-                                        <Label Text="{Binding phantram1}"
+                                               IsVisible="{Binding CheckTangGiamTow}"></Label>
+                                        <Label Text="{Binding TangGiamTow}"
                                                FontSize="20"
-                                               TextColor="{Binding mau}"
+                                               TextColor="{Binding ColorMa}"
                                                Grid.Column="2"
                                                HorizontalOptions="End"
                                                Grid.Row="0"
-                                               VerticalOptions="CenterAndExpand" 
-                                               IsVisible="{Binding check6}"/>
-                                        <Label Text="{Binding khoiluong}"
+                                               VerticalOptions="CenterAndExpand"
+                                               IsVisible="{Binding CheckTangGiamOne}"/>
+                                        <Label Text="{Binding KhoiLuong}"
                                                FontSize="20"
                                                TextColor="Black"
                                                Grid.Column="3"
@@ -274,18 +276,18 @@
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
-                </ListView>
+                </ListView><!--list mã chứng khoán-->
             </StackLayout>
             <BoxView BackgroundColor="Black"
                      Grid.Row="4"
                      Opacity="0.5"
-                     x:Name="boxview3"
-                     IsVisible="false"  />
+                     x:Name="boxView3"
+                     IsVisible="false"  /><!--làm mờ bóng dưới-->
             <Grid Grid.Row="2"
                   Grid.RowSpan="3"
                   RowDefinitions="30,*,220"
                   ColumnDefinitions="25,*,25"
-                  x:Name="note"
+                  x:Name="griDanhMuc"
                   IsVisible="false"  >
                 <Grid RowDefinitions="60,*,60,60"
                       ColumnDefinitions="*,50"
@@ -308,11 +310,11 @@
                            HorizontalOptions="CenterAndExpand"
                            VerticalOptions="CenterAndExpand">
                         <Image.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_5" />
+                            <TapGestureRecognizer Tapped="Tap_tatlistDanhMuc" />
                         </Image.GestureRecognizers>
                     </Image>
                     <Button Text="Tạo danh mục"
-                            Clicked="Button_Clicked"
+                            Clicked="Button_TaoDanhMuc"
                             TextColor="#0064b2"
                             Padding="0"
                             Margin="0"
@@ -337,7 +339,7 @@
                            x:Name="check"
                            IsVisible="false">
                         <Image.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_7" />
+                            <TapGestureRecognizer Tapped="Tap_taoDanhMuc" />
                         </Image.GestureRecognizers>
                     </Image>
                     <StackLayout Grid.Row="1"
@@ -346,8 +348,8 @@
                                  Margin="0"
                                  Padding="0"
                                  Spacing="0">
-                        <ListView ItemsSource="{Binding listnote}"
-                                  x:Name="listnote1"
+                        <ListView ItemsSource="{Binding ListTaoDanhMuc}"
+                                  x:Name="listDanhMuc"
                                   Margin="10,10,10,10">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
@@ -358,13 +360,13 @@
                                                     <SwipeItems>
                                                         <SwipeItem Text="Xóa"
                                                                    BackgroundColor="red"
-                                                                   Command="{Binding Path=BindingContext.Delete1Command , Source={x:Reference listnote1}}"
+                                                                   Command="{Binding Path=BindingContext.DeleteDanhmucCommand , Source={x:Reference listDanhMuc}}"
                                                                    CommandParameter="{Binding}" />
                                                     </SwipeItems>
-                                                </SwipeView.RightItems>
+                                                </SwipeView.RightItems><!--xóa danh mục-->
                                                 <Grid ColumnDefinitions="*,25"
                                                       RowDefinitions="*,1">
-                                                    <Label Text="{Binding notetext}"
+                                                    <Label Text="{Binding NameDanhMuc }"
                                                            TextColor="Black"
                                                            FontSize="18"
                                                            VerticalOptions="CenterAndExpand"
@@ -375,7 +377,7 @@
                                                              VerticalOptions="CenterAndExpand"
                                                              Grid.ColumnSpan="2"
                                                              Grid.Row="1" />
-                                                    <Image Source="{Binding image}"
+                                                    <Image Source="{Binding Image}"
                                                            Grid.Column="1"
                                                            Grid.Row="0"
                                                            HorizontalOptions="CenterAndExpand"
@@ -386,11 +388,11 @@
                                     </ViewCell>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
-                        </ListView>
+                        </ListView><!--hiển thị list danh mục-->
                         
                     </StackLayout>
                 </Grid>
-            </Grid>
+            </Grid><!--hiển thị list danh mục-->
         </Grid>
     </ContentPage.Content>
 </ContentPage>

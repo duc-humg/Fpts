@@ -161,6 +161,7 @@ namespace Fpts.Droid.Renderer
             return bar;
         }
 
+        [Obsolete]
         private void PopulateBottomBarItems(BottomBar bar, IEnumerable<Page> pages)
         {
             var barItems = pages.Select(x => new BottomBarTab(Context.Resources.GetDrawable(x.Icon), x.Title));

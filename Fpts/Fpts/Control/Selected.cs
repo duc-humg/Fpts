@@ -16,18 +16,18 @@ namespace Fpts.ViewModel
         public DataTemplate jungle { get; set; }
         protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
         {
-            var Me = (menu)item;
+            var Me = (MenuModel)item;
             
 
-            if (Me.key=="top")
+            if (Me.Key=="top")
             {
                 return Top;
             }
-            if (Me.key=="mid")
+            if (Me.Key=="mid")
             {
                 return Mid;
             }
-            if (Me.key == "sp")
+            if (Me.Key == "sp")
             {
                 return sp;
             }

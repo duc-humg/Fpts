@@ -1,0 +1,649 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:Fpts.ViewModel"
+             x:Class="Fpts.Views.Datlenh"
+             Title="Đặt Lệnh">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="line.png"
+                     Priority="0"
+                     Order="Primary"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.BindingContext>
+        <viewModels:datlenhViewmodel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid RowDefinitions="90,100,360,*">
+            <Grid RowDefinitions="40,50"
+                  ColumnDefinitions="*,*"
+                  RowSpacing="0"
+                  ColumnSpacing="10"
+                  Grid.Row="0"
+                  Padding="5,0,0,5">
+                <Label Text="s.dư tiền:     0"
+                       VerticalOptions="Start"
+                       FontSize="15"
+                       TextColor="Blue"
+                       HorizontalOptions="StartAndExpand"
+                       Padding="10"
+                       x:Name="text1" />
+                <Label Text="Số dư CK:     0"
+                       VerticalOptions="CenterAndExpand"
+                       FontSize="15"
+                       TextColor="Blue"
+                       HorizontalOptions="StartAndExpand"
+                       Padding="10,0,0,0"
+                       x:Name="text2"
+                       IsVisible="false" />
+                <BoxView BackgroundColor="White"
+                         Grid.Row="1"
+                         Grid.Column="0" />
+                <Grid    Grid.Row="1"
+                         Grid.Column="0"
+                         ColumnDefinitions="*,20">
+                    <Entry Placeholder="Mã"
+                           Keyboard="Url"
+                           CursorPosition="10"
+                           TextTransform="Uppercase"
+                           VerticalOptions="CenterAndExpand"
+                           TextColor="Black"
+                           FontSize="20"
+                           SelectionLength="10"
+                           HorizontalTextAlignment="Center"
+                           x:Name="entry1"
+                           Unfocused="entry1_Unfocused" />
+                    <Image Source="close.png"
+                           Grid.Column="1"
+                           Margin="0,0,5,0">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Grid>
+                <Button Text="Số dư CK"
+                        Font="Large"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        BackgroundColor="DimGray"
+                        TextColor="White"
+                        FontSize="20"
+                        WidthRequest="200"
+                        Margin="0,0,10,0"
+                        Clicked="Button_sodu" />
+            </Grid><!--nhập mã-->
+            <Grid ColumnDefinitions="*,*,*,*,*,*"
+                  RowDefinitions="50,25,25"
+                  RowSpacing="0"
+                  Grid.Row="1"
+                  Padding="5,0,0,5">
+                <Label x:Name="lbl_ten"
+                       Grid.Row="0"
+                       Grid.ColumnSpan="6"
+                       VerticalOptions="CenterAndExpand"
+                       HorizontalOptions="CenterAndExpand"
+                       TextColor="Blue"
+                       FontSize="22" />
+                <BoxView BackgroundColor="#4D4D4D"
+                         Grid.Column="0"
+                         Grid.Row="1"
+                         Grid.RowSpan="2" />
+                <Label Text="Trần"
+                       TextColor="White"
+                       FontSize="15"
+                       Grid.Column="0"
+                       Grid.Row="1"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="CenterAndExpand" />
+                <Label Text="0"
+                       x:Name="lbl_tran"
+                       TextColor="#9C377B"
+                       FontSize="15"
+                       Grid.Column="0"
+                       Grid.Row="2"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="CenterAndExpand" />
+                <BoxView BackgroundColor="#4D4D4D"
+                         Grid.Column="1"
+                         Grid.Row="1"
+                         Grid.RowSpan="2" />
+                <Label Text="TC"
+                       TextColor="White"
+                       FontSize="15"
+                       Grid.Column="1"
+                       Grid.Row="1"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="CenterAndExpand" />
+                <Label Text="0"
+                       x:Name="lbl_TC"
+                       TextColor="#BEC76A"
+                       FontSize="15"
+                       Grid.Column="1"
+                       Grid.Row="2"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="CenterAndExpand" />
+                <BoxView BackgroundColor="#4D4D4D"
+                         Grid.Column="2"
+                         Grid.Row="1"
+                         Grid.RowSpan="2" />
+                <Label Text="Sàn"
+                       TextColor="White"
+                       FontSize="15"
+                       Grid.Column="2"
+                       Grid.Row="1"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="CenterAndExpand" />
+                <Label Text="0"
+                       x:Name="lbl_san"
+                       TextColor="#3288BB"
+                       FontSize="15"
+                       Grid.Column="2"
+                       Grid.Row="2"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="CenterAndExpand" />
+                <BoxView BackgroundColor="#4D4D4D"
+                         Grid.Column="3"
+                         Grid.Row="1"
+                         Grid.RowSpan="2" />
+                <Label Text="Mua 1"
+                       TextColor="White"
+                       FontSize="15"
+                       Grid.Column="3"
+                       Grid.Row="1"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="CenterAndExpand" />
+                <Label Text="0"
+                       x:Name="lbl_mua1"
+                       TextColor="White"
+                       FontSize="15"
+                       Grid.Column="3"
+                       Grid.Row="2"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="CenterAndExpand" />
+                <BoxView BackgroundColor="#4D4D4D"
+                         Grid.Column="4"
+                         Grid.Row="1"
+                         Grid.RowSpan="2" />
+                <Label Text="Khớp"
+                       TextColor="White"
+                       FontSize="15"
+                       Grid.Column="4"
+                       Grid.Row="1"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="CenterAndExpand" />
+                <Label x:Name="lbl_khop"
+                       Text="0"
+                       TextColor="White"
+                       FontSize="15"
+                       Grid.Column="4"
+                       Grid.Row="2"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="CenterAndExpand" />
+                <BoxView BackgroundColor="#4D4D4D"
+                         Grid.Column="5"
+                         Grid.Row="1"
+                         Grid.RowSpan="2"
+                         Margin="0,0,5,0" />
+                <Label Text="Bán 1"
+                       TextColor="White"
+                       FontSize="15"
+                       Grid.Column="5"
+                       Grid.Row="1"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="CenterAndExpand" />
+                <Label x:Name="lbl_ban1"
+                       Text="0"
+                       TextColor="White"
+                       FontSize="15"
+                       Grid.Column="5"
+                       Grid.Row="2"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="CenterAndExpand" />
+            </Grid><!--hiển thị mã-->
+            <Grid ColumnDefinitions="*,*"
+                  RowDefinitions="50,50,50,50,60,50,50"
+                  Padding="5,10,5,5"
+                  RowSpacing="15"
+                  Grid.Row="2">
+                <Label Text="Mua / Bán"
+                       TextColor="Black"
+                       FontSize="20"
+                       Grid.Column="0"
+                       Grid.Row="0"
+                       VerticalOptions="CenterAndExpand" /><!--lbl_muaban-->
+                <Label Text="Loại GD"
+                       TextColor="Black"
+                       FontSize="20"
+                       Grid.Column="0"
+                       Grid.Row="1"
+                       VerticalOptions="CenterAndExpand" />
+                <!--lbl_loaiGD-->
+                <StackLayout Grid.Column="0"
+                             Grid.Row="2"
+                             Orientation="Horizontal">
+                    <Label Text="Khối lượng"
+                           TextColor="Black"
+                           FontSize="20"
+                           VerticalOptions="Center" />
+                    <Label Text="max 500"
+                           TextColor="White"
+                           FontSize="15"
+                           VerticalOptions="Center"
+                           BackgroundColor="#808080"
+                           x:Name="lbl_max"
+                           IsVisible="false">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_max500" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout><!--khoiluong-->
+                <StackLayout Grid.Column="0"
+                             Grid.Row="3"
+                             Orientation="Horizontal">
+                    <Label Text="Giá"
+                           TextColor="Black"
+                           FontSize="22"
+                           VerticalOptions="CenterAndExpand" />
+                    <Label Text="x 1000"
+                           TextColor="Black"
+                           FontSize="15"
+                           VerticalOptions="CenterAndExpand" />
+                </StackLayout><!--giá-->
+                <Grid Grid.Row="4"
+                      Grid.ColumnSpan="2"
+                      ColumnDefinitions="50,50,50,50"
+                      ColumnSpacing="60"
+                      Padding="30,0,40,0"
+                      IsVisible="false"
+                      x:Name="xl_gia">
+                    <BoxView BackgroundColor="#4D4D4D"
+                             Grid.Column="0"
+                             x:Name="txt_lo"
+                             VerticalOptions="CenterAndExpand">
+                        <BoxView.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="LO_tap" />
+                        </BoxView.GestureRecognizers>
+                    </BoxView><!--Lo-->
+                    <Label Text="LO"
+                           TextColor="Orange"
+                           FontSize="20"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="CenterAndExpand">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="LO_tap" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <BoxView BackgroundColor="#4D4D4D"
+                             Grid.Column="1"
+                             x:Name="txt_ato"
+                             VerticalOptions="CenterAndExpand">
+                        <BoxView.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ATO_tap" />
+                        </BoxView.GestureRecognizers>
+                    </BoxView><!--ATO-->
+                    <Label Text="ATO"
+                           TextColor="White"
+                           FontSize="20"
+                           Grid.Column="1"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="CenterAndExpand">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ATO_tap" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <BoxView BackgroundColor="#4D4D4D"
+                             Grid.Column="2"
+                             x:Name="txt_mp"
+                             VerticalOptions="CenterAndExpand">
+                        <BoxView.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="MP_tap" />
+                        </BoxView.GestureRecognizers>
+                    </BoxView><!--MP-->
+                    <Label Text="MP"
+                           TextColor="White"
+                           FontSize="20"
+                           Grid.Column="2"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="CenterAndExpand">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="MP_tap" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <BoxView BackgroundColor="#4D4D4D"
+                             Grid.Column="3"
+                             x:Name="txt_atc"
+                             VerticalOptions="CenterAndExpand">
+                        <BoxView.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ATC_tap" />
+                        </BoxView.GestureRecognizers>
+                    </BoxView><!--ATC-->
+                    <Label Text="ATC"
+                           TextColor="White"
+                           FontSize="20"
+                           Grid.Column="3"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="CenterAndExpand">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ATC_tap" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Grid><!--các loại giá -->
+                <Label Text=" Mật khẩu giao dịch"
+                       TextColor="Black"
+                       FontSize="20"
+                       Grid.Column="0"
+                       Grid.Row="5"
+                       VerticalOptions="CenterAndExpand" /><!--lbl_mk-->
+                <Button Text="Xác nhận mua "
+                        TextColor="White"
+                        BackgroundColor="#4242"
+                        Grid.ColumnSpan="2"
+                        Grid.Row="6"
+                        CornerRadius="60"
+                        FontSize="22"
+                        FontAttributes="Bold"
+                        Margin="60,0,60,0"
+                        x:Name="btn_mua" /><!--btn xam-->
+                <Button Text="Xác nhận mua "
+                        TextColor="White"
+                        BackgroundColor="#1976D3"
+                        Grid.ColumnSpan="2"
+                        Grid.Row="6"
+                        CornerRadius="60"
+                        FontSize="22"
+                        FontAttributes="Bold"
+                        Margin="60,0,60,0"
+                        x:Name="btn_ban"
+                        IsVisible="false" /><!--btn xanhnhat-->
+                <Button Text="Xác nhận mua "
+                        TextColor="White"
+                        BackgroundColor="#1D60AE"
+                        Grid.ColumnSpan="2"
+                        Grid.Row="6"
+                        CornerRadius="60"
+                        FontSize="22"
+                        FontAttributes="Bold"
+                        Margin="60,0,60,0"
+                        x:Name="btn_ban1"
+                        IsVisible="false" /><!--btn xanhdam-->
+                <Button Text="Xác nhận bán "
+                        TextColor="White"
+                        BackgroundColor="#E18A90"
+                        Grid.ColumnSpan="2"
+                        Grid.Row="6"
+                        CornerRadius="60"
+                        FontSize="22"
+                        FontAttributes="Bold"
+                        Margin="60,0,60,0"
+                        x:Name="btn_mua1"
+                        IsVisible="false" /><!--btn hongnhat-->
+                <Button Text="Xác nhận bán "
+                        TextColor="White"
+                        BackgroundColor="#C4151C"
+                        Grid.ColumnSpan="2"
+                        Grid.Row="6"
+                        CornerRadius="60"
+                        FontSize="22"
+                        FontAttributes="Bold"
+                        Margin="60,0,60,0"
+                        x:Name="btn_mua2"
+                        IsVisible="false" /><!--btn do-->
+                <Grid Grid.Column="1"
+                      Grid.Row="0"
+                      ColumnSpacing="5"
+                      BackgroundColor="#C9C9C9"
+                      ColumnDefinitions="20,*,20">
+                    <Image Source="phai.png"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="CenterAndExpand"
+                           Grid.Column="0"
+                           Margin="5,0,0,0">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Image Source="right.png"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="CenterAndExpand"
+                           Grid.Column="2"
+                           Margin="0,0,5,0">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label Text="MUA"
+                           TextColor="Blue"
+                           FontSize="22"
+                           Grid.Column="1"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="CenterAndExpand"
+                           x:Name="lbl_mua">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_3" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Label Text="BÁN"
+                           TextColor="red"
+                           FontSize="22"
+                           Grid.Column="1"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="CenterAndExpand"
+                           x:Name="lbl_ban"
+                           IsVisible="false">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_4" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Grid>
+                <Grid Grid.Column="1"
+                      Grid.Row="1"
+                      ColumnSpacing="5"
+                      BackgroundColor="#C9C9C9"
+                      ColumnDefinitions="20,*,20">
+                    <Image Source="phai.png"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="CenterAndExpand"
+                           Grid.Column="0"
+                           Margin="5,0,0,0">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_5" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Image Source="right.png"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="CenterAndExpand"
+                           Grid.Column="2"
+                           Margin="0,0,5,0">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_6" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label Text="Thường"
+                           TextColor="Black"
+                           FontSize="22"
+                           Grid.Column="1"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="CenterAndExpand"
+                           x:Name="lbl_thuong">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_7" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Label Text="Nhanh"
+                           TextColor="Black"
+                           FontSize="22"
+                           Grid.Column="1"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="CenterAndExpand"
+                           x:Name="lbl_nhanh"
+                           IsVisible="false">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_8" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Grid>
+                <Grid Grid.Column="1"
+                      Grid.Row="2"
+                      ColumnSpacing="5"
+                      BackgroundColor="#FAFAFA"
+                      ColumnDefinitions="20,*,20">
+                    <Image Source="minus.png"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="CenterAndExpand"
+                           Grid.Column="0"
+                           Margin="5,0,0,0">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_truKL" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Image Source="add.png"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="CenterAndExpand"
+                           Grid.Column="2"
+                           Margin="0,0,5,0">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_CongKL" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Entry Keyboard="Numeric"
+                           TextColor="Black"
+                           FontSize="20"
+                           Grid.Column="1"
+                           HorizontalTextAlignment="Center"
+                           VerticalOptions="CenterAndExpand"
+                           x:Name="entry_KL"></Entry>
+                </Grid>
+                <Grid Grid.Column="1"
+                      Grid.Row="3"
+                      ColumnSpacing="5"
+                      BackgroundColor="#FAFAFA"
+                      ColumnDefinitions="20,*,20">
+                    <Image Source="minus.png"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="CenterAndExpand"
+                           Grid.Column="0"
+                           Margin="5,0,0,0"></Image>
+                    <Image Source="add.png"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="CenterAndExpand"
+                           Grid.Column="2"
+                           Margin="0,0,5,0"></Image>
+                    <Entry TextColor="Black"
+                           FontSize="20"
+                           Grid.Column="1"
+                           Text="{Binding max , Mode=TwoWay}"
+                           HorizontalTextAlignment="Center"
+                           VerticalOptions="CenterAndExpand"
+                           x:Name="lbl_gia"></Entry>
+                </Grid>
+               
+                <Entry IsPassword="True"
+                       Placeholder="Mật khẩu giao dịch"
+                       Grid.Column="1"
+                       Grid.Row="5"
+                       TextColor="Black"
+                       x:Name="matkhau"
+                       Unfocused="matkhau_Unfocused"
+                       BackgroundColor="White"
+                       /><!--mat khau-->
+            </Grid><!--mua bán-->
+            <BoxView BackgroundColor="Black"
+                     Grid.RowSpan="4"
+                     Opacity="0.5"
+                     x:Name="boxview3"
+                     IsVisible="false" />
+            <Grid Margin="30,20,30,120"
+                  RowSpacing="0"
+                  Grid.RowSpan="4"
+                  RowDefinitions="50,40,*,*,60"
+                  x:Name="box_xuly"
+                  IsVisible="false"
+                  Unfocused="box_xuly_Unfocused">
+                <Grid Grid.Row="0"
+                      ColumnDefinitions="*,40"
+                      BackgroundColor="Blue">
+                    <Label Text="Số dư chứng khoán hiện có"
+                           TextColor="White"
+                           FontSize="20"
+                           HorizontalOptions="CenterAndExpand"
+                           VerticalOptions="CenterAndExpand"
+                           Grid.Column="0" />
+                    <Image Source="close.png"
+                           Aspect="AspectFill"
+                           Margin="10,10,10,10"
+                           HorizontalOptions="CenterAndExpand"
+                           VerticalOptions="CenterAndExpand"
+                           Grid.Column="1">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_9" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Grid>
+                <Grid Grid.Row="1"
+                      ColumnDefinitions="30,*"
+                      BackgroundColor="White">
+                    <SearchBar Placeholder="Mã chứng khoán"
+                               BackgroundColor="White"
+                               TextColor="Black"
+                               CancelButtonColor="Gray" 
+                               Grid.Column="1"/>
+                    <Image Source="search.png"
+                           Margin="5,5,5,5" 
+                           Grid.Column="0"/>
+                </Grid>
+                <BoxView BackgroundColor="#A4A4A4"
+                         Grid.Row="2"
+                         Grid.RowSpan="2" />
+                <Grid Grid.Row="2"
+                      ColumnDefinitions="180,*,80,100"
+                      RowDefinitions="30,1">
+                    <Label Text="Mã"
+                           FontSize="17"
+                           TextColor="Black"
+                           Grid.Column="0"
+                           Padding="10,0,0,0"
+                           VerticalOptions="CenterAndExpand"/>
+                    <Label Text="KL"
+                           TextColor="Black"
+                           Grid.Column="1"
+                           FontSize="17"
+                           VerticalOptions="CenterAndExpand" />
+                    <Label Text="Tỷ lệ vay"
+                           FontSize="17"
+                           Grid.Column="2"
+                           TextColor="Black"
+                           VerticalOptions="CenterAndExpand" />
+                    <Label Text="Ngày ĐH"
+                           FontSize="17"
+                           Grid.Column="3"
+                           Padding="0,0,20,0"
+                           TextColor="Black"
+                           VerticalOptions="CenterAndExpand" />
+                    <BoxView BackgroundColor="Gray"
+                             Grid.Row="1"
+                             Grid.ColumnSpan="4" 
+                             Margin="10,0,20,0"/>
+                </Grid>
+                <Grid   ColumnDefinitions="100,*,100,*"      
+                        Grid.Row="4"
+                              BackgroundColor="White">
+                    <Image Source="hong.png"
+                           Margin="60,25,20,15" 
+                           Grid.Column="0"/>
+                    <Label Text="Xử lý"
+                           FontSize="18"
+                           Margin="0,20,20,10"
+                           Grid.Column="1"
+                           VerticalOptions="CenterAndExpand"/>
+                    <Image Source="vang.png"
+                           Margin="60,25,20,15"
+                           Grid.Column="2" />
+                    <Label Text="Hết hạn"
+                           FontSize="18"
+                           Margin="0,20,20,10"
+                           Grid.Column="3"
+                           VerticalOptions="CenterAndExpand" />
+                </Grid>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

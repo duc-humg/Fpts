@@ -8,113 +8,93 @@ namespace Fpts
 {
     public partial class App : Application
     {
-        public static ObservableCollection<Banggia> HSX { get; set; }
-        public static ObservableCollection<Banggia> HNX { get; set; }
+        public static ObservableCollection<CoPhieuModel> ListHSX { get; set; }
+        public static ObservableCollection<CoPhieuModel> ListHNX { get; set; }
         public App()
         {
             InitializeComponent();
 
             MainPage = new MasterDetailMainview();
-            HNX = new ObservableCollection<Banggia>();
-            HSX = new ObservableCollection<Banggia>();
-            HNX.Add(new Banggia { Ma = "VNI", thaydoi = "1164.21", sogd = 28.53, thaydoi1 = "2.60%", monney = "15758.59 tỷ", ma = "TS3", gia = "35", phantram = -0.5, khoiluong = "56,300", check1 = true, check2 = false, check3 = true, check4 = false, img = "sao.png" });
-            HNX.Add(new Banggia { Ma = "VN100", thaydoi = "1107.82", sogd = 30.53, thaydoi1 = "2.60%", monney = "15758.59 tỷ", ma = "PTV", gia = "30", phantram = 0, khoiluong = "56,300", check1 = true, check2 = false, check3 = true, check4 = false, img = "sao.png" });
-            HNX.Add(new Banggia { Ma = "VN30", thaydoi = "1151.3", sogd = 35.53, thaydoi1 = "2.60%", monney = "15758.59 tỷ", ma = "PVI", gia = "31", phantram = -0.6, khoiluong = "56,300", check1 = true, check2 = false, check3 = true, check4 = false, img = "sao.png" });
-            HNX.Add(new Banggia { Ma = "VNALL", thaydoi = "1109.72", sogd = 32.53, thaydoi1 = "2.60%", monney = "15758.59 tỷ", ma = "SHB", gia = "32", phantram = -0.3, khoiluong = "56,300", check1 = true, check2 = false, check3 = true, check4 = false, img = "sao.png" });
-            HNX.Add(new Banggia { Ma = "VNMID", thaydoi = "1382.57", sogd = 49.53, thaydoi1 = "2.60%", monney = "15758.59 tỷ", ma = "HAD", gia = "36", phantram = -0.2, khoiluong = "56,300", check1 = true, check2 = false, check3 = true, check4 = false, img = "sao.png" });
-            HNX.Add(new Banggia { Ma = "VNSML", thaydoi = "1168.07", sogd = 35.53, thaydoi1 = "2.60%", monney = "15758.59 tỷ", ma = "ABC", gia = "48", phantram = 0, khoiluong = "56,300", check1 = true, check2 = false, check3 = true, check4 = false, img = "sao.png" });
-            HNX.Add(new Banggia { Ma = "VNXALL", thaydoi = "1176.21", sogd = 48.53, thaydoi1 = "2.60%", monney = "15758.59 tỷ", ma = "HGA", gia = "63", phantram = 1, khoiluong = "56,300", check1 = true, check2 = false, check3 = true, check4 = false, img = "sao.png" });
-            HSX.Add(new Banggia { Ma = "HNX30", thaydoi = "1176.21", sogd = 48.53, thaydoi1 = "2.60%", monney = "15758.59 tỷ", ma = "PNT", gia = "21", phantram = 1.2, khoiluong = "56,300", check1 = true, check2 = false, check3 = true, check4 = false, img = "sao.png" });
-            HSX.Add(new Banggia { Ma = "HNXCON", thaydoi = "1176.21", sogd = 48.53, thaydoi1 = "2.60%", monney = "15758.59 tỷ", ma = "VIC", gia = "34", phantram = 1.3, khoiluong = "56,300", check1 = true, check2 = false, check3 = true, check4 = false, img = "sao.png" });
-            HSX.Add(new Banggia { Ma = "HNXFIN", thaydoi = "1176.21", sogd = 48.53, thaydoi1 = "2.60%", monney = "15758.59 tỷ", ma = "MBB", gia = "30", phantram = 1.6, khoiluong = "56,300", check1 = true, check2 = false, check3 = true, check4 = false, img = "sao.png" });
-            HSX.Add(new Banggia { Ma = "HNX", thaydoi = "1176.21", sogd = 38.53, thaydoi1 = "2.60%", monney = "15758.59 tỷ", ma = "MBB", gia = "30", phantram = 1.6, khoiluong = "56,300", check1 = true, check2 = false, check3 = true, check4 = false, img = "sao.png" });
-            HSX.Add(new Banggia { Ma = "HNXLCAP", thaydoi = "1176.21", sogd = 38.53, thaydoi1 = "2.60%", monney = "15758.59 tỷ", ma = "MBB", gia = "30", phantram = 1.6, khoiluong = "56,300", check1 = true, check2 = false, check3 = true, check4 = false, img = "sao.png" });
-            HSX.Add(new Banggia { Ma = "HNXMAN", thaydoi = "1176.21", sogd = 38.53, thaydoi1 = "2.60%", monney = "15758.59 tỷ", ma = "MBB", gia = "30", phantram = 1.6, khoiluong = "56,300", check1 = true, check2 = false, check3 = true, check4 = false, img = "sao.png" });
-            HSX.Add(new Banggia { Ma = "HNXMSCA", thaydoi = "1176.21", sogd = 38.53, thaydoi1 = "2.60%", monney = "15758.59 tỷ", ma = "MBB", gia = "30", phantram = 1.6, khoiluong = "56,300", check1 = true, check2 = false, check3 = true, check4 = false, img = "sao.png" });
-            HSX.Add(new Banggia { Ma = "UPCOM", thaydoi = "1176.21", sogd = 38.53, thaydoi1 = "2.60%", monney = "15758.59 tỷ", ma = "MBB", gia = "30", phantram = 1.6, khoiluong = "56,300", check1 = true, check2 = false, check3 = true, check4 = false, img = "sao.png" });
+            ListHNX = new ObservableCollection<CoPhieuModel>();
+            ListHSX = new ObservableCollection<CoPhieuModel>();
+            ListHNX.Add(new CoPhieuModel { MaChiSo = "VNI", GiaChiSo = "1164.21", ThayDoiOne = 28.53, ThayDoiTow = "2.60%", GiaTri = "15758.59 tỷ", MaChungkhoan = "TS3", GiaChungKhoan = "35", TangGiamOne = -0.5, KhoiLuong = "56,300", TangGiamTow = 2.5, CheckThayDoiTow = true, CheckThayDoiOne = false ,CheckShowKhoiLuong = true, CheckShowGia = false, imgSao = "sao.png" });
+            ListHNX.Add(new CoPhieuModel { MaChiSo = "VN100", GiaChiSo = "1107.82", ThayDoiOne = 30.53, ThayDoiTow = "2.60%", GiaTri = "15758.59 tỷ", MaChungkhoan = "PTV", GiaChungKhoan = "30", TangGiamOne = 0, KhoiLuong = "56,300", TangGiamTow = 1.5, CheckThayDoiTow = true, CheckThayDoiOne = false, CheckShowKhoiLuong = true, CheckShowGia = false, imgSao = "sao.png" });
+            ListHNX.Add(new CoPhieuModel { MaChiSo = "VN30", GiaChiSo = "1151.3", ThayDoiOne = 35.53, ThayDoiTow = "2.60%", GiaTri = "15758.59 tỷ", MaChungkhoan = "PVI", GiaChungKhoan = "31", TangGiamOne = -0.6, KhoiLuong = "56,300", TangGiamTow = 0.0, CheckThayDoiTow = true, CheckThayDoiOne = false, CheckShowKhoiLuong = true, CheckShowGia = false, imgSao = "sao.png" });
+            ListHNX.Add(new CoPhieuModel { MaChiSo = "VNALL", GiaChiSo = "1109.72", ThayDoiOne = 32.53, ThayDoiTow = "2.60%", GiaTri = "15758.59 tỷ", MaChungkhoan = "SHB", GiaChungKhoan = "32", TangGiamOne = -0.3, KhoiLuong = "56,300", TangGiamTow = 1.1, CheckThayDoiTow = true, CheckThayDoiOne = false, CheckShowKhoiLuong = true, CheckShowGia = false, imgSao = "sao.png" });
+            ListHNX.Add(new CoPhieuModel { MaChiSo = "VNMID", GiaChiSo = "1382.57", ThayDoiOne = 49.53, ThayDoiTow = "2.60%", GiaTri = "15758.59 tỷ", MaChungkhoan = "HAD", GiaChungKhoan = "36", TangGiamOne = -0.2, KhoiLuong = "56,300", TangGiamTow = 2.6, CheckThayDoiTow = true, CheckThayDoiOne = false, CheckShowKhoiLuong = true, CheckShowGia = false, imgSao = "sao.png" });
+            ListHNX.Add(new CoPhieuModel { MaChiSo = "VNSML", GiaChiSo = "1168.07", ThayDoiOne = 35.53, ThayDoiTow = "2.60%", GiaTri = "15758.59 tỷ", MaChungkhoan = "ABC", GiaChungKhoan = "48", TangGiamOne = 0, KhoiLuong = "56,300", TangGiamTow = 12.5, CheckThayDoiTow = true, CheckThayDoiOne = false, CheckShowKhoiLuong = true, CheckShowGia = false, imgSao = "sao.png" });
+            ListHNX.Add(new CoPhieuModel { MaChiSo = "VNXALL", GiaChiSo = "1176.21", ThayDoiOne = 48.53, ThayDoiTow = "2.60%", GiaTri = "15758.59 tỷ", MaChungkhoan = "HGA", GiaChungKhoan = "63", TangGiamOne = 1, KhoiLuong = "56,300", TangGiamTow = 3.6, CheckThayDoiTow = true, CheckThayDoiOne = false, CheckShowKhoiLuong = true, CheckShowGia = false, imgSao = "sao.png" });
+            ListHSX.Add(new CoPhieuModel { MaChiSo = "HNX30", GiaChiSo = "1176.21", ThayDoiOne = 48.53, ThayDoiTow = "2.60%", GiaTri = "15758.59 tỷ", MaChungkhoan = "PNT", GiaChungKhoan = "21", TangGiamOne = 1.2, KhoiLuong = "56,300", TangGiamTow = 4.2, CheckThayDoiTow = true, CheckThayDoiOne = false, CheckShowKhoiLuong = true, CheckShowGia = false, imgSao = "sao.png" });
+            ListHSX.Add(new CoPhieuModel { MaChiSo = "HNXCON", GiaChiSo = "1176.21", ThayDoiOne = 48.53, ThayDoiTow = "2.60%", GiaTri = "15758.59 tỷ", MaChungkhoan = "VIC", GiaChungKhoan = "34", TangGiamOne = 1.3, KhoiLuong = "56,300", TangGiamTow = 5.0, CheckThayDoiTow = true, CheckThayDoiOne = false, CheckShowKhoiLuong = true, CheckShowGia = false, imgSao = "sao.png" });
+            ListHSX.Add(new CoPhieuModel { MaChiSo = "HNXFIN", GiaChiSo = "1176.21", ThayDoiOne = 48.53, ThayDoiTow = "2.60%", GiaTri = "15758.59 tỷ", MaChungkhoan = "MBB", GiaChungKhoan = "30", TangGiamOne = 1.6, KhoiLuong = "56,300", TangGiamTow = 2.0, CheckThayDoiTow = true, CheckThayDoiOne = false, CheckShowKhoiLuong = true, CheckShowGia = false, imgSao = "sao.png" });
+            ListHSX.Add(new CoPhieuModel { MaChiSo = "HNX", GiaChiSo = "1176.21", ThayDoiOne = 38.53, ThayDoiTow = "2.60%", GiaTri = "15758.59 tỷ", MaChungkhoan = "MBB", GiaChungKhoan = "30", TangGiamOne = 1.6, KhoiLuong = "56,300", TangGiamTow = 6.0, CheckThayDoiTow = true, CheckThayDoiOne = false, CheckShowKhoiLuong = true, CheckShowGia = false, imgSao = "sao.png" });
+            ListHSX.Add(new CoPhieuModel { MaChiSo = "HNXLCAP", GiaChiSo = "1176.21", ThayDoiOne = 38.53, ThayDoiTow = "2.60%", GiaTri = "15758.59 tỷ", MaChungkhoan = "MBB", GiaChungKhoan = "30", TangGiamOne = 1.6, KhoiLuong = "56,300", TangGiamTow = 12.1, CheckThayDoiTow = true, CheckThayDoiOne = false, CheckShowKhoiLuong = true, CheckShowGia = false, imgSao = "sao.png" });
+            ListHSX.Add(new CoPhieuModel { MaChiSo = "HNXMAN", GiaChiSo = "1176.21", ThayDoiOne = 38.53, ThayDoiTow = "2.60%", GiaTri = "15758.59 tỷ", MaChungkhoan = "MBB", GiaChungKhoan = "30", TangGiamOne = 1.6, KhoiLuong = "56,300", TangGiamTow = 2.3, CheckThayDoiTow = true, CheckThayDoiOne = false, CheckShowKhoiLuong = true, CheckShowGia = false, imgSao = "sao.png" });
+            ListHSX.Add(new CoPhieuModel { MaChiSo = "HNXMSCAP", GiaChiSo = "1176.21", ThayDoiOne = 38.53, ThayDoiTow = "2.60%", GiaTri = "15758.59 tỷ", MaChungkhoan = "MBB", GiaChungKhoan = "30", TangGiamOne = 1.6, KhoiLuong = "56,300", TangGiamTow = 5.7, CheckThayDoiTow = true, CheckThayDoiOne = false, CheckShowKhoiLuong = true, CheckShowGia = false, imgSao = "sao.png" });
+            ListHSX.Add(new CoPhieuModel { MaChiSo = "UPCOM", GiaChiSo = "1176.21", ThayDoiOne = 38.53, ThayDoiTow = "2.60%", GiaTri = "15758.59 tỷ", MaChungkhoan = "MBB", GiaChungKhoan = "30", TangGiamOne = 1.6, KhoiLuong = "56,300", TangGiamTow = 22.5, CheckThayDoiTow = true, CheckThayDoiOne = false, CheckShowKhoiLuong = true, CheckShowGia = false, imgSao = "sao.png" });
 
-            foreach (var item in HNX)
+            foreach (var item in ListHNX)
             {
-                if (item.sogd > 40.00)
+                if (item.ThayDoiOne > 40.00)
                 {
-                    item.color = "#6ac164";
+                    item.ColorNumber = "#6ac164";
                 }
-                if (item.sogd == 48.53)
+                if (item.ThayDoiOne == 48.53)
                 {
-                    item.color = "#f26f21";
+                    item.ColorNumber = "#f26f21";
                 }
-                if (item.sogd < 40.00)
+                if (item.ThayDoiOne < 40.00)
                 {
-                    item.color = "#c3161c";
-                }
-
-            }
-            foreach (var iteam in HNX)
-            {
-                if (iteam.phantram > 0)
-                {
-                    iteam.mau = "#6ac164";
-                }
-                if (iteam.phantram == 0)
-                {
-                    iteam.mau = "#f26f21";
-                }
-                if (iteam.phantram < 0)
-                {
-                    iteam.mau = "#c3161c";
-                }
-            }
-            foreach (var item in HSX)
-            {
-                if (item.sogd > 40.00)
-                {
-                    item.color = "#6ac164";
-                }
-                if (item.sogd == 48.53)
-                {
-                    item.color = "#f26f21";
-                }
-                if (item.sogd < 40.00)
-                {
-                    item.color = "#c3161c";
+                    item.ColorNumber = "#c3161c";
                 }
 
             }
-            foreach (var iteam in HSX)
+            foreach (var iteam in ListHNX)
             {
-                if (iteam.phantram > 0)
+                if (iteam.TangGiamOne > 0)
                 {
-                    iteam.mau = "#6ac164";
+                    iteam.ColorMa = "#6ac164";
                 }
-                if (iteam.phantram == 0)
+                if (iteam.TangGiamOne == 0)
                 {
-                    iteam.mau = "#f26f21";
+                    iteam.ColorMa = "#f26f21";
                 }
-                if (iteam.phantram < 0)
+                if (iteam.TangGiamOne < 0)
                 {
-                    iteam.mau = "#c3161c";
+                    iteam.ColorMa = "#c3161c";
                 }
             }
-            foreach (var icon in HNX)
+            foreach (var item in ListHSX)
             {
-                if (icon.check5 == false)
+                if (item.ThayDoiOne > 40.00)
                 {
-                    icon.img = "sao.png";
+                    item.ColorNumber = "#6ac164";
                 }
-                else
-                    icon.img = "saovang.png";
-            }
-            foreach (var icon in HSX)
-            {
-                if (icon.check5 == false)
+                if (item.ThayDoiOne == 48.53)
                 {
-                    icon.img = "sao.png";
+                    item.ColorNumber = "#f26f21";
                 }
-                else
-                    icon.img = "saovang.png";
-            }
-            
+                if (item.ThayDoiOne < 40.00)
+                {
+                    item.ColorNumber = "#c3161c";
+                }
 
+            }
+            foreach (var iteam in ListHSX)
+            {
+                if (iteam.TangGiamOne > 0)
+                {
+                    iteam.ColorMa = "#6ac164";
+                }
+                if (iteam.TangGiamOne == 0)
+                {
+                    iteam.ColorMa = "#f26f21";
+                }
+                if (iteam.TangGiamOne < 0)
+                {
+                    iteam.ColorMa = "#c3161c";
+                }
+            }
         }
         public static bool test=true;
         public static bool test1;

@@ -3,11 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:Views="clr-namespace:Fpts.Views"
             x:Class="Fpts.Views.MasterDetailMainviewDetail"
-            Title="EzMobile Trading">
+           >
   <!--Pages can be added as references or inline-->
     <Views:Home IconImageSource="nhandinh.png"></Views:Home>
     <Views:Home IconImageSource="invoice.png"></Views:Home>
-    <Views:Home IconImageSource="law.png"></Views:Home>
+    <Views:Datlenh IconImageSource="law.png">
+    </Views:Datlenh>
     <Views:Home IconImageSource="edit.png"></Views:Home>
     <Views:Home IconImageSource="tien.png"></Views:Home>
 </TabbedPage>

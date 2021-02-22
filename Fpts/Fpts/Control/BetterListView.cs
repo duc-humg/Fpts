@@ -30,7 +30,7 @@ namespace Fpts.ViewModel
 
         private void OnItemTapped(object sender, ItemTappedEventArgs e)
         {
-            if(e.Item != null)
+            if (e.Item != null)
             {
                 ItemClickCommand?.Execute(e.Item);
                 SelectedItem = null;

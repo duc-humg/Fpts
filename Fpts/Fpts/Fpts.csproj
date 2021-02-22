@@ -20,19 +20,43 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Views\MasterDetailMainview.xaml">
+    <Compile Update="Views\PageDatLenh.xaml.cs">
+      <DependentUpon>PageDatLenh.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ViewXuLyTuongTac.xaml.cs">
+      <DependentUpon>ViewXuLyTuongTac.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ViewTuongTac.xaml.cs">
+      <DependentUpon>ViewTuongTac.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ViewCongCu.xaml.cs">
+      <DependentUpon>ViewCongCu.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\PageHome.xaml.cs">
+      <DependentUpon>PageHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\PageThiTruong.xaml.cs">
+      <DependentUpon>PageThiTruong.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\PageDatLenh.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\MasterDetailMainviewMaster.xaml">
+    <EmbeddedResource Update="Views\ViewTuongTac.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Home.xaml">
+    <EmbeddedResource Update="Views\ViewXuLyTuongTac.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\MasterDetailMainviewDetail.xaml">
+    <EmbeddedResource Update="Views\PageHome.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\thitruong.xaml">
+    <EmbeddedResource Update="Views\ViewCongCu.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\PageThiTruong.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
