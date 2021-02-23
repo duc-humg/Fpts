@@ -45,27 +45,17 @@ namespace Fpts
                     tick.IsVisible = true;
                     
                 }
-                //else
-                //{
-                //    item.check1 = true;
-                //    item.check4 = false;
-                //    setup.IsVisible = false;
-                //    power.IsVisible = false;
-                //    tick.IsVisible = true;
-                //    listview.IsVisible = true;
-                //    listview1.IsVisible = false;
-                //}
             }
         }
-
+        
         private void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
         {
-            test = !test;
+           
             var vm = (ViewXulyTuongTacViewModel)BindingContext;
 
             foreach (var item in vm.ListTuongTac)
             {
-                if (test == false && App.test1==true)
+                if ( App.test1==true)
                 {
                     item.CheckSao = false;
                     item.CheckSuKienKeoDai = true;
@@ -75,13 +65,14 @@ namespace Fpts
                     tick.IsVisible = false;
                     listTuongTac.ItemsSource = vm.ListThayThe;
                 }
-                if (test==false && App.test1 == false)
+                if ( App.test1 == false)
                 {
                     item.CheckSao = false;
                     item.CheckSuKienKeoDai = true;
                     setup.IsVisible = true;
                     power.IsVisible = true;
                     tick.IsVisible = false;
+                    listTuongTac.ItemsSource = vm.ListTuongTac;
                 }
             }
         }

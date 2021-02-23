@@ -7,6 +7,7 @@ using Xamarin.Forms;
 using Fpts.Views;
 using System.ComponentModel;
 using System.Threading.Tasks;
+using Fpts.Control;
 
 namespace Fpts.ViewModel
 {
@@ -20,7 +21,6 @@ namespace Fpts.ViewModel
         }
         public event PropertyChangedEventHandler PropertyChanged;
         public ObservableCollection<MenuModel> ListTuongTac { get; set; }
-        //public ObservableCollection<MenuModel> list2 { get; set; }
         public ObservableCollection<MenuModel> ListThayThe { get; set; }
         public Command<object> CheckCommand { get; set; }
         public Command<object> TickCommand { get; set; }
@@ -28,33 +28,34 @@ namespace Fpts.ViewModel
 
         public ViewXulyTuongTacViewModel()
         {
-            CheckCommand = new Command<object>(Click);
+
+            CheckCommand = new Command<object>(check);
             TickCommand = new Command<object>(Click1);
             ListTuongTac = new ObservableCollection<MenuModel>();
-            
-            ListTuongTac.Add(new MenuModel { TextKeyTop = "Thị trường", Key = "top" });
-            ListTuongTac.Add(new MenuModel { Image = "tongquan.png", Sao = "sao.png", TextKeyMid = "Tổng quan" ,Key="mid", CheckSao=false});
-            ListTuongTac.Add(new MenuModel { Image = "book.png", Sao = "sao.png", TextKeyMid = "Bảng Giá", Key = "mid", CheckSao = false });
-            ListTuongTac.Add(new MenuModel { Image = "tintuc.png", Sao = "sao.png", TextKeyMid = "Tin tức", Key = "mid", CheckSao = false });
-            ListTuongTac.Add(new MenuModel { Image = "chiso.png", Sao = "sao.png", TextKeyMid = "Chỉ số thế giới", Key = "mid", CheckSao = false });
-            ListTuongTac.Add(new MenuModel { Image = "nhandinh.png", Sao = "sao.png", TextKeyMid = "FPTS nhận định", Key = "mid", CheckSao = false });
-            ListTuongTac.Add(new MenuModel { Image = "lich.png", Sao = "sao.png", TextKeyMid = "Lịch sự kiện", Key = "mid", CheckSao = false });
-            ListTuongTac.Add(new MenuModel { Image = "dothi.png", Sao = "sao.png", TextKeyMid = "Biểu đồ", Key = "mid", CheckSao = false });
-            ListTuongTac.Add(new MenuModel { Image = "sort.png", Sao = "sao.png", TextKeyMid = "Giao dịch phát sinh", Key = "mid", CheckSao = false });
-            ListTuongTac.Add(new MenuModel { TextKeyTop = "Giao dịch",Key="top" });
-            ListTuongTac.Add(new MenuModel { Image = "datlenh.png", Sao = "sao.png", TextKeyMid = "Đặt lệnh", Key="mid", CheckSao = false });
-            ListTuongTac.Add(new MenuModel { Image = "nhandinh.png", Sao = "sao.png", TextKeyBot = "Báo cáo Giao dịch", Key="bot", CheckSao = false ,CheckNutThemSuKien=true,CheckSuKienKeoDai=true, TextKeyBotOne = "Lệnh trong ngày", TextKeyBotTow = "Lịch sử đặt lệnh", TextKeyBotThree = "Lịch sử ứng trước" });
-            ListTuongTac.Add(new MenuModel { Image = "taikhoan.png", Sao = "sao.png", TextKeyBot = "Quản lý tài khoản", Key="bot", CheckSao = false , CheckNutThemSuKien = true,CheckSuKienKeoDai=true, TextKeyBotEight = "Sao kê chứng khoán", TextKeyBotFour = "Sao kê tiền", TextKeyBotFive = "Tra cứu phí lưu ký", TextKeyBotSix = "Tra cứu tình trạng chứng quyền", TextKeyBotSeven = "Tra cứu biểu phí" });
-            ListTuongTac.Add(new MenuModel { Image = "baocao.png", Sao = "sao.png", TextKeyMid = "Báo cáo tài sản", Key="mid", CheckSao = false });
-            ListTuongTac.Add(new MenuModel { Image = "atm.png", Sao = "sao.png", TextKeyMid = "Bán lô lẻ", Key="mid", CheckSao = false });
-            ListTuongTac.Add(new MenuModel { Image = "quyen.png", Sao = "sao.png", TextKeyMid = "Thực hiện quyền", Key="mid", CheckSao = false });
-            ListTuongTac.Add(new MenuModel { TextKeyTop = "Trợ giúp", Key="top" });
-            ListTuongTac.Add(new MenuModel { Image = "thongbao.png", Sao = "sao.png", TextKeyMid = "Thông báo",Key="mid", CheckSao = false });
-            ListTuongTac.Add(new MenuModel { Image = "matkhau.png", Sao = "sao.png", TextKeyMid = "Cài đặt mật khẩu",Key="mid", CheckSao = false });
-            ListTuongTac.Add(new MenuModel { Image = "lienhe.png", Sao = "sao.png", TextKeyMid = "Liên hệ",Key="mid", CheckSao = false });
-            ListTuongTac.Add(new MenuModel { Image = "love.png", Sao = "sao.png", TextKeyMid = "Góp ý",Key="mid", CheckSao = false });
-            ListTuongTac.Add(new MenuModel { Image = "book.png", Sao = "sao.png", TextKeyMid = "Hướng dẫn sử dụng",Key="mid", CheckSao = false });
-            ListTuongTac.Add(new MenuModel { Image = "seting.png", Sao = "sao.png", TextKeyMid = "Cài đặt",Key="mid", CheckSao = false });
+            ListTuongTac.Add(new MenuModel { stt = 0, TextKeyTop = "Thị trường", Key = "top" });
+            ListTuongTac.Add(new MenuModel { stt = 1, Image = "tongquan.png", Sao = "sao.png", TextKeyMid = "Tổng quan", Key = "mid", CheckSao = false });
+            ListTuongTac.Add(new MenuModel { stt = 2, Image = "book.png", Sao = "sao.png", TextKeyMid = "Bảng Giá", Key = "mid", CheckSao = false });
+            ListTuongTac.Add(new MenuModel { stt = 3, Image = "tintuc.png", Sao = "sao.png", TextKeyMid = "Tin tức", Key = "mid", CheckSao = false });
+            ListTuongTac.Add(new MenuModel { stt = 4, Image = "chiso.png", Sao = "sao.png", TextKeyMid = "Chỉ số thế giới", Key = "mid", CheckSao = false });
+            ListTuongTac.Add(new MenuModel { stt = 5, Image = "nhandinh.png", Sao = "sao.png", TextKeyMid = "FPTS nhận định", Key = "mid", CheckSao = false });
+            ListTuongTac.Add(new MenuModel { stt = 6, Image = "lich.png", Sao = "sao.png", TextKeyMid = "Lịch sự kiện", Key = "mid", CheckSao = false });
+            ListTuongTac.Add(new MenuModel { stt = 7, Image = "dothi.png", Sao = "sao.png", TextKeyMid = "Biểu đồ", Key = "mid", CheckSao = false });
+            ListTuongTac.Add(new MenuModel { stt = 8, Image = "sort.png", Sao = "sao.png", TextKeyMid = "Giao dịch phát sinh", Key = "mid", CheckSao = false });
+            ListTuongTac.Add(new MenuModel { stt = 9, TextKeyTop = "Giao dịch", Key = "top" });
+            ListTuongTac.Add(new MenuModel { stt = 10, Image = "datlenh.png", Sao = "sao.png", TextKeyMid = "Đặt lệnh", Key = "mid", CheckSao = false });
+            ListTuongTac.Add(new MenuModel { stt = 11, Image = "nhandinh.png", Sao = "sao.png", TextKeyBot = "Báo cáo Giao dịch", Key = "bot", CheckSao = false, CheckNutThemSuKien = true, CheckSuKienKeoDai = true, TextKeyBotOne = "Lệnh trong ngày", TextKeyBotTow = "Lịch sử đặt lệnh", TextKeyBotThree = "Lịch sử ứng trước" });
+            ListTuongTac.Add(new MenuModel { stt = 12, Image = "taikhoan.png", Sao = "sao.png", TextKeyBot = "Quản lý tài khoản", Key = "bot", CheckSao = false, CheckNutThemSuKien = true, CheckSuKienKeoDai = true, TextKeyBotEight = "Sao kê chứng khoán", TextKeyBotFour = "Sao kê tiền", TextKeyBotFive = "Tra cứu phí lưu ký", TextKeyBotSix = "Tra cứu tình trạng chứng quyền", TextKeyBotSeven = "Tra cứu biểu phí" });
+            ListTuongTac.Add(new MenuModel { stt = 13, Image = "baocao.png", Sao = "sao.png", TextKeyMid = "Báo cáo tài sản", Key = "mid", CheckSao = false });
+            ListTuongTac.Add(new MenuModel { stt = 14, Image = "atm.png", Sao = "sao.png", TextKeyMid = "Bán lô lẻ", Key = "mid", CheckSao = false });
+            ListTuongTac.Add(new MenuModel { stt = 15, Image = "quyen.png", Sao = "sao.png", TextKeyMid = "Thực hiện quyền", Key = "mid", CheckSao = false });
+            ListTuongTac.Add(new MenuModel { stt = 16, TextKeyTop = "Trợ giúp", Key = "top" });
+            ListTuongTac.Add(new MenuModel { stt = 17, Image = "thongbao.png", Sao = "sao.png", TextKeyMid = "Thông báo", Key = "mid", CheckSao = false });
+            ListTuongTac.Add(new MenuModel { stt = 18, Image = "matkhau.png", Sao = "sao.png", TextKeyMid = "Cài đặt mật khẩu", Key = "mid", CheckSao = false });
+            ListTuongTac.Add(new MenuModel { stt = 19, Image = "lienhe.png", Sao = "sao.png", TextKeyMid = "Liên hệ", Key = "mid", CheckSao = false });
+            ListTuongTac.Add(new MenuModel { stt = 20, Image = "love.png", Sao = "sao.png", TextKeyMid = "Góp ý", Key = "mid", CheckSao = false });
+            ListTuongTac.Add(new MenuModel { stt = 21, Image = "book.png", Sao = "sao.png", TextKeyMid = "Hướng dẫn sử dụng", Key = "mid", CheckSao = false });
+            ListTuongTac.Add(new MenuModel { stt = 22, Image = "seting.png", Sao = "sao.png", TextKeyMid = "Cài đặt", Key = "mid", CheckSao = false });
+
             //list2 = new ObservableCollection<MenuModel>();
             //list2.Add(new MenuModel { TextKeyTop = "Thị trường", Key = "top" });
             //list2.Add(new MenuModel { Image = "tongquan.png", Sao = "Sao.png", TextKeyMid = "Tổng quan", Key = "mid", CheckSao = true });
@@ -104,75 +105,48 @@ namespace Fpts.ViewModel
             ListThayThe.Add(new MenuModel { Image = "love.png", Sao = "Sao.png", TextKeyMid = "Góp ý", Key = "mid", CheckSao = false });
             ListThayThe.Add(new MenuModel { Image = "book.png", Sao = "Sao.png", TextKeyMid = "Hướng dẫn sử dụng", Key = "mid", CheckSao = false });
             ListThayThe.Add(new MenuModel { Image = "seting.png", Sao = "Sao.png", TextKeyMid = "Cài đặt", Key = "mid", CheckSao = false });
+
+
         }
 
-        private void Click1(object obj)
+        private void check(object obj)
         {
-            //foreach(var iteam in ListThayThe)
-            //{
-            //    if (iteam.Sao == "saovang.png")
-            //    {
-            //        ListTuongTac = ListThayThe;
-            //    }
-                
-            //}
-        }
-
-
-        public bool test;
-        private void Click(object obj)
-        {
-            
             var mn = obj as MenuModel;
             if (mn.CheckSaoVang == false)
             {
-                
                 mn.CheckSaoVang = true;
                 mn.Sao = "saovang.png";
                 mn.CheckNutThemSuKien = false;
                 mn.Key = "mid";
-                var a = mn.TextKeyMid;
-                //ListTuongTac.Add(new menu { Image = mn.Image, TextKeyMid = mn.TextKeyMid, Key = mn.Key , TextKeyBot =mn.TextKeyBot});
-                
-                for (var i = ListTuongTac.Count - 1; i >= 0; i--)
-                {
-                    if (ListTuongTac[i].TextKeyMid == a )
-                    {
-                        ListThayThe.RemoveAt(i);
-                    }
-                    if (ListTuongTac[i].Sao == "saovang.png")
-                    {
-                        App.test1 = true;
-                        
-                    }
-                    if (ListTuongTac[i].Sao == "sao.png")
-                    {
-                        App.test1 = false;
-                    }
-                }
+                mn.stt = 1;
                 ListThayThe.Insert(1, mn);
+
             }
             else
             {
-               
                 mn.CheckSaoVang = false;
                 mn.Sao = "sao.png";
                 mn.CheckNutThemSuKien = true;
-                for (var m = ListTuongTac.Count - 1; m >= 0; m--)
-                {
-                    if (ListTuongTac[m].Sao=="saovang.png")
-                    {
-                        App.test1 = true;
+                ListThayThe.Remove(mn);
+            }
+        }
 
-                    }
-                    if (ListTuongTac[m].Sao == "sao.png")
-                    {
-                        App.test1 = false;
-                        ListThayThe.RemoveAt(m);
-                    }
+        private void Click1(object obj)
+        {
+            foreach (var itam in ListThayThe)
+            {
+                if (itam.Sao == "saovang.png")
+                {
+                    App.test1 = true;
+                    break;
+                }
+                else
+                {
+                     App.test1 = false;
                 }
             }
-
         }
+
     }
 }
+
